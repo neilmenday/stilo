@@ -33,6 +33,4 @@ npm install @neilmenday/stilo
 
 ## Extending Stilo
 
-To build a themed UI on top of Stilo, create a separate repository that depends on this package and applies your visual layer (colours, typography, iconography, motion) on top of the structural primitives.
-
-CakeUI (`nm-nc2/cakeui`) is the reference implementation of this pattern.
+Create a separate repository that depends on this package and applies your visual layer — colours, typography, iconography, motion — on top of the structural primitives. Stilo has no knowledge of what extends it.
