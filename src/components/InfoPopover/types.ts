@@ -1,8 +1,5 @@
-export type PopoverVariant =
-  | 'Down centre' | 'Down left'    | 'Down right'
-  | 'Up centre'   | 'Up left'      | 'Up right'
-  | 'Right-Centre'| 'Right-Top'    | 'Right-Bottom'
-  | 'Left-Centre' | 'Left-Top'     | 'Left-Bottom';
+export type { PopoverVariant } from '../Popover/types';
+import type { PopoverVariant } from '../Popover/types';
 
 export interface InfoPopoverProps {
   title?:   string;
