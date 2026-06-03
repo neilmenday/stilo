@@ -1,4 +1,13 @@
 import type React from 'react';
+import type { FormBlockSettingsStructureProps } from '../FormBlockSettings/FormBlockSettings';
+import type { FormBlockInputStructureProps } from '../FormBlockInput/FormBlockInput';
+import type { FormBlockExpandableProps } from '../FormBlockExpandable/types';
+
+/** The structural children a SettingsView accepts. */
+export type FormBlockElement =
+  | React.ReactElement<FormBlockSettingsStructureProps>
+  | React.ReactElement<FormBlockInputStructureProps>
+  | React.ReactElement<FormBlockExpandableProps>;
 
 export interface SettingsViewProps {
   teams?:           string[];
@@ -21,5 +30,5 @@ export interface SettingsViewProps {
   onCancel?:             () => void;
   modeSpaceNotification?: string;
   header?: React.ReactNode;
-  children: React.ReactNode;
+  children: FormBlockElement | FormBlockElement[];
 }
