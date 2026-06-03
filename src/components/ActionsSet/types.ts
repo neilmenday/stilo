@@ -1,0 +1,40 @@
+export type FilterVariant = 'combobox' | 'filter-mega';
+
+export interface ActionsSetProps {
+  filterVariant?:   FilterVariant;
+  showFilter?:      boolean;
+  filterLabel?:          string;
+  filterListVariant?:    string;
+  filterItems?:          { value: string; label: string; meta?: string; group?: string }[];
+  filterInfoTitle?:      string;
+  filterInfoBody?:       string;
+  showFilterInfo?:       boolean;
+  filterActive?:         boolean;
+  onFilterSelect?:       (item: { value: string; label: string }) => void;
+  onFilterMultiSelect?:  (values: string[]) => void;
+  filterFields?:         { key: string; label: string; type: 'combobox' | 'date'; items?: { value: string; label: string }[] }[];
+  filterPanelWidth?:     number;
+  filterMegaValues?:     Record<string, string>;
+  renderFilterResponse?: (values: Record<string, string>) => unknown;
+  onFilterChange?:       (values: Record<string, string>) => void;
+  showSearch?:     boolean;
+  searchLabel?:    string;
+  onSearchChange?: (value: string) => void;
+  showAction?:          boolean;
+  actionLabel?:         string;
+  actionListVariant?:   string;
+  actionItems?:         { value: string; label: string }[];
+  actionInfoTitle?:     string;
+  actionInfoBody?:      string;
+  showActionInfo?:      boolean;
+  actionInactive?:      boolean;
+  onActionSelect?:      (item: { value: string; label: string }) => void;
+  onActionMultiSelect?: (values: string[]) => void;
+  showButton?:     boolean;
+  buttonLabel?:    string;
+  onButtonClick?:  () => void;
+  buttonDisabled?: boolean;
+  showHistory?:    boolean;
+  historyLabel?:   string;
+  onHistoryClick?: () => void;
+}
