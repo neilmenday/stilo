@@ -30,6 +30,7 @@ export * from './FilterResultsBar';
 export * from './FormBlockExpandable';
 export * from './FormBlockInput';
 export * from './FormBlockSettings';
+export * from './FormBlockStacked';
 export * from './FShapeLayout';
 export * from './FunctionsBar';
 export * from './GridView';

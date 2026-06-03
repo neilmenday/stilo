@@ -3,12 +3,14 @@ import type { AvatarListItemProps } from '../AvatarListItem/types';
 import type { FormBlockSettingsStructureProps } from '../FormBlockSettings/FormBlockSettings';
 import type { FormBlockInputStructureProps } from '../FormBlockInput/FormBlockInput';
 import type { FormBlockExpandableProps } from '../FormBlockExpandable/types';
+import type { FormBlockStackedProps } from '../FormBlockStacked/FormBlockStacked';
 
 /** The structural children a SettingsView accepts. */
 export type FormBlockElement =
   | React.ReactElement<FormBlockSettingsStructureProps>
   | React.ReactElement<FormBlockInputStructureProps>
-  | React.ReactElement<FormBlockExpandableProps>;
+  | React.ReactElement<FormBlockExpandableProps>
+  | React.ReactElement<FormBlockStackedProps>;
 
 export interface SettingsViewProps {
   teams?:           string[];
