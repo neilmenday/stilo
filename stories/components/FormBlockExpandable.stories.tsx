@@ -44,7 +44,7 @@ function FormBlockExpandableDemo({
 }
 
 const meta: Meta<typeof FormBlockExpandableDemo> = {
-  title: 'Stilo/Component Sets/FormBlockExpandable',
+  title: 'Stilo/Views/SettingsView/FormBlockExpandable',
   component: FormBlockExpandableDemo,
   tags: ['autodocs'],
 };

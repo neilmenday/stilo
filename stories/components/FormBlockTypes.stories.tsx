@@ -104,7 +104,7 @@ function AllFormBlockTypes() {
 }
 
 const meta: Meta = {
-  title: 'Stilo/Component Sets/FormBlock Types',
+  title: 'Stilo/Views/SettingsView/FormBlock Types',
   component: AllFormBlockTypes,
   parameters: {
     layout: 'fullscreen',

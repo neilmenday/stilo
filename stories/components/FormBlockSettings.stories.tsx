@@ -78,7 +78,7 @@ function FormBlockSettingsDemo({
 }
 
 const meta: Meta<typeof FormBlockSettingsDemo> = {
-  title: 'Stilo/Component Sets/FormBlockSettings',
+  title: 'Stilo/Views/SettingsView/FormBlockSettings',
   component: FormBlockSettingsDemo,
   tags: ['autodocs'],
 };

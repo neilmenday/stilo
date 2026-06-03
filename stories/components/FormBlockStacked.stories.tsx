@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { FormBlockStacked } from '../../src/components/FormBlockStacked';
 
 const meta: Meta<typeof FormBlockStacked> = {
-  title: 'Stilo/Component Sets/FormBlockStacked',
+  title: 'Stilo/Views/SettingsView/FormBlockStacked',
   component: FormBlockStacked,
   tags: ['autodocs'],
   parameters: {
