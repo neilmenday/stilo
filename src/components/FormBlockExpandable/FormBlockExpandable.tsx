@@ -1,5 +1,20 @@
 import React from 'react';
+import { useExpandableBox } from '../ExpandableBox/useExpandableBox';
 import type { FormBlockExpandableProps } from './types';
+
+export interface FormBlockExpandableHeaderProps {
+  title:       string;
+  isOpen:      boolean;
+  onToggle:    () => void;
+  showPill:    boolean;
+  pillLabel?:  string;
+  showDotmenu: boolean;
+}
+
+export interface FormBlockExpandableStructureProps extends FormBlockExpandableProps {
+  /** Extension renders the header (title, toggle control, pill, dotmenu). */
+  renderHeader: (props: FormBlockExpandableHeaderProps) => React.ReactElement;
+}
 
 export function FormBlockExpandable({
   title       = 'Section',
@@ -10,23 +25,18 @@ export function FormBlockExpandable({
   showDotmenu = false,
   children,
   onChange,
-}: FormBlockExpandableProps) {
+  renderHeader,
+}: FormBlockExpandableStructureProps) {
+  const { isOpen, toggle } = useExpandableBox({ variant, defaultOpen, onChange });
+
   return (
-    <div
-      data-stilo="form-block-expandable"
-      data-variant={variant}
-      data-default-open={defaultOpen || undefined}
-    >
-      <div data-stilo="form-block-expandable-header">
-        <span data-stilo="form-block-expandable-title">{title}</span>
-        {showPill && pillLabel && (
-          <span data-stilo="form-block-expandable-pill">{pillLabel}</span>
-        )}
-        {showDotmenu && <span data-stilo="form-block-expandable-dotmenu" />}
-      </div>
-      <div data-stilo="form-block-expandable-content">
-        {children}
-      </div>
+    <div data-stilo="form-block-expandable" data-open={isOpen || undefined}>
+      {renderHeader({ title, isOpen, onToggle: toggle, showPill, pillLabel: pillLabel, showDotmenu })}
+      {isOpen && (
+        <div data-stilo="form-block-expandable-content">
+          {children}
+        </div>
+      )}
     </div>
   );
 }

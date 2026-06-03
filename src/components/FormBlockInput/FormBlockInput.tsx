@@ -9,14 +9,17 @@ export interface FormBlockInputStructureProps {
   notification?: React.ReactElement;
 }
 
+// --form-input-gap: gap between the stacked slots
+
 export function FormBlockInput({ nameField, descriptionField, notification }: FormBlockInputStructureProps) {
   return (
-    <div data-stilo="form-block-input" style={{ display: 'flex', flexDirection: 'column' }}>
+    <div
+      data-stilo="form-block-input"
+      style={{ display: 'flex', flexDirection: 'column', gap: 'var(--form-input-gap, 16px)' }}
+    >
       <div data-stilo="form-block-input-name">{nameField}</div>
       <div data-stilo="form-block-input-description">{descriptionField}</div>
-      {notification && (
-        <div data-stilo="form-block-input-notification">{notification}</div>
-      )}
+      {notification && <div data-stilo="form-block-input-notification">{notification}</div>}
     </div>
   );
 }
