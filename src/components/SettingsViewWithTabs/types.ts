@@ -1,4 +1,5 @@
 import type React from 'react';
+import type { AvatarListItemProps } from '../AvatarListItem/types';
 
 export interface SettingsViewWithTabsProps {
   teams?:           string[];
@@ -8,7 +9,7 @@ export interface SettingsViewWithTabsProps {
   onNavChange?:     (item: string) => void;
   breadcrumbItems?: { label: string; onClick?: () => void }[];
   chooserLabel?:    string;
-  avatarListItem?:  Record<string, unknown>;
+  avatarListItem?:  AvatarListItemProps;
   title:                    string;
   onHelpClick?:             () => void;
   showHeaderChooser?:       boolean;

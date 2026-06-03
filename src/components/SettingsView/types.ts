@@ -1,4 +1,5 @@
 import type React from 'react';
+import type { AvatarListItemProps } from '../AvatarListItem/types';
 import type { FormBlockSettingsStructureProps } from '../FormBlockSettings/FormBlockSettings';
 import type { FormBlockInputStructureProps } from '../FormBlockInput/FormBlockInput';
 import type { FormBlockExpandableProps } from '../FormBlockExpandable/types';
@@ -17,7 +18,7 @@ export interface SettingsViewProps {
   onNavChange?:     (item: string) => void;
   breadcrumbItems?: { label: string; onClick?: () => void }[];
   chooserLabel?:    string;
-  avatarListItem?:  Record<string, unknown>;
+  avatarListItem?:  AvatarListItemProps;
   title:                    string;
   onHelpClick?:             () => void;
   showHeaderChooser?:       boolean;
