@@ -18,7 +18,8 @@ export interface FormBlockFieldDef {
 export interface FormBlockRowDef {
   title: string;
   description?: string;
-  fields: [FormBlockFieldDef] | [FormBlockFieldDef, FormBlockFieldDef];
+  /** One or two fields per row. */
+  fields: FormBlockFieldDef[];
 }
 
 export interface FormBlockSettingsProps {
