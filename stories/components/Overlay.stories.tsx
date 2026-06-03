@@ -53,7 +53,7 @@ function OverlayDemo({
 }
 
 const meta: Meta<typeof OverlayDemo> = {
-  title: 'Stilo/Components/Overlay',
+  title: 'Stilo/Components - Passive/Overlay',
   component: OverlayDemo,
   tags: ['autodocs'],
 };

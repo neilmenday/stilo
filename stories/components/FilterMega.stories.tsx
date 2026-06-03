@@ -57,7 +57,7 @@ function FilterMegaDemo({
 }
 
 const meta: Meta<typeof FilterMegaDemo> = {
-  title: 'Stilo/Components/FilterMega',
+  title: 'Stilo/Components - Passive/FilterMega',
   component: FilterMegaDemo,
   tags: ['autodocs'],
 };

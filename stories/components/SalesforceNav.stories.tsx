@@ -36,7 +36,7 @@ function SalesforceNavDemo({
 }
 
 const meta: Meta<typeof SalesforceNavDemo> = {
-  title: 'Stilo/Components/SalesforceNav',
+  title: 'Stilo/Foundations/SalesforceNav',
   component: SalesforceNavDemo,
   tags: ['autodocs'],
 };

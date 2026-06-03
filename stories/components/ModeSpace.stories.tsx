@@ -37,7 +37,7 @@ function ModeSpaceDemo({
 }
 
 const meta: Meta<typeof ModeSpaceDemo> = {
-  title: 'Stilo/Components/ModeSpace',
+  title: 'Stilo/Foundations/ModeSpace',
   component: ModeSpaceDemo,
   tags: ['autodocs'],
 };

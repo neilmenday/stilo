@@ -34,7 +34,7 @@ function IconGallery() {
 }
 
 const meta: Meta<typeof IconDemo> = {
-  title: 'Stilo/Components/Icon',
+  title: 'Stilo/Icons/Icon',
   component: IconDemo,
   tags: ['autodocs'],
 };

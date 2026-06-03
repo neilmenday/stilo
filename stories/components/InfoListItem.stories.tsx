@@ -54,7 +54,7 @@ function InfoListItemDemo({
 }
 
 const meta: Meta<typeof InfoListItemDemo> = {
-  title: 'Stilo/Components/InfoListItem',
+  title: 'Stilo/Component Sets/InfoListItem',
   component: InfoListItemDemo,
   tags: ['autodocs'],
 };

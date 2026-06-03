@@ -80,7 +80,7 @@ function MRFDemo({
 }
 
 const meta: Meta<typeof MRFDemo> = {
-  title: 'Stilo/Components/MRF',
+  title: 'Stilo/Component Sets/MRF',
   component: MRFDemo,
   tags: ['autodocs'],
 };

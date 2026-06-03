@@ -51,7 +51,7 @@ function ListItemGroupDemo({
 }
 
 const meta: Meta<typeof ListItemGroupDemo> = {
-  title: 'Stilo/Components/ListItemGroup',
+  title: 'Stilo/Component Sets/ListItemGroup',
   component: ListItemGroupDemo,
   tags: ['autodocs'],
 };

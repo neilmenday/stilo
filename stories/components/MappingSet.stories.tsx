@@ -55,7 +55,7 @@ function MappingSetDemo({
 }
 
 const meta: Meta<typeof MappingSetDemo> = {
-  title: 'Stilo/Components/MappingSet',
+  title: 'Stilo/Component Sets/MappingSet',
   component: MappingSetDemo,
   tags: ['autodocs'],
 };

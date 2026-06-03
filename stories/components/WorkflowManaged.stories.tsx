@@ -29,7 +29,7 @@ function WorkflowManagedDemo() {
 }
 
 const meta: Meta<typeof WorkflowManagedDemo> = {
-  title: 'Stilo/Components/WorkflowManaged',
+  title: 'Stilo/Workflows/WorkflowManaged',
   component: WorkflowManagedDemo,
   tags: ['autodocs'],
 };

@@ -42,7 +42,7 @@ function CalendarViewDemo({
 }
 
 const meta: Meta<typeof CalendarViewDemo> = {
-  title: 'Stilo/Components/CalendarView',
+  title: 'Stilo/Views/CalendarView',
   component: CalendarViewDemo,
   tags: ['autodocs'],
 };

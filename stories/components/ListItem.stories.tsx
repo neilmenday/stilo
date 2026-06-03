@@ -57,7 +57,7 @@ function ListItemDemo({
 }
 
 const meta: Meta<typeof ListItemDemo> = {
-  title: 'Stilo/Components/ListItem',
+  title: 'Stilo/Components - Passive/ListItem',
   component: ListItemDemo,
   tags: ['autodocs'],
 };

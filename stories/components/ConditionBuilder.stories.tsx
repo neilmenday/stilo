@@ -88,7 +88,7 @@ function ConditionBuilderDemo({
 }
 
 const meta: Meta<typeof ConditionBuilderDemo> = {
-  title: 'Stilo/Components/ConditionBuilder',
+  title: 'Stilo/Component Sets/ConditionBuilder',
   component: ConditionBuilderDemo,
   tags: ['autodocs'],
 };

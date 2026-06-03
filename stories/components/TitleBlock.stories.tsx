@@ -32,7 +32,7 @@ function TitleBlockDemo({
 }
 
 const meta: Meta<typeof TitleBlockDemo> = {
-  title: 'Stilo/Components/TitleBlock',
+  title: 'Stilo/Foundations/TitleBlock',
   component: TitleBlockDemo,
   tags: ['autodocs'],
 };

@@ -61,7 +61,7 @@ function ControllableListSetDemo({
 }
 
 const meta: Meta<typeof ControllableListSetDemo> = {
-  title: 'Stilo/Components/ControllableListSet',
+  title: 'Stilo/Component Sets/ControllableListSet',
   component: ControllableListSetDemo,
   tags: ['autodocs'],
 };

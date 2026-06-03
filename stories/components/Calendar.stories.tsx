@@ -59,7 +59,7 @@ function CalendarDemo({ initialYear, initialMonth, onDayClick }: CalendarProps) 
 }
 
 const meta: Meta<typeof CalendarDemo> = {
-  title: 'Stilo/Components/Calendar',
+  title: 'Stilo/Components - Passive/Calendar',
   component: CalendarDemo,
   tags: ['autodocs'],
 };

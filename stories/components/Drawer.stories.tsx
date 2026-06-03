@@ -51,7 +51,7 @@ function DrawerDemo({
 }
 
 const meta: Meta<typeof DrawerDemo> = {
-  title: 'Stilo/Components/Drawer',
+  title: 'Stilo/Components - Passive/Drawer',
   component: DrawerDemo,
   tags: ['autodocs'],
 };

@@ -30,7 +30,7 @@ function GridViewDemo({
 }
 
 const meta: Meta<typeof GridViewDemo> = {
-  title: 'Stilo/Components/GridView',
+  title: 'Stilo/Views/GridView',
   component: GridViewDemo,
   tags: ['autodocs'],
 };

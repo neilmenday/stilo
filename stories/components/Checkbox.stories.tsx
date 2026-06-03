@@ -46,7 +46,7 @@ function CheckboxDemo({
 }
 
 const meta: Meta<typeof CheckboxDemo> = {
-  title: 'Stilo/Components/Checkbox',
+  title: 'Stilo/Components - Passive/Checkbox',
   component: CheckboxDemo,
   tags: ['autodocs'],
 };

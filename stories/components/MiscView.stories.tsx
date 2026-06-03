@@ -46,7 +46,7 @@ function MiscViewDemo({
 }
 
 const meta: Meta<typeof MiscViewDemo> = {
-  title: 'Stilo/Components/MiscView',
+  title: 'Stilo/Views/MiscView',
   component: MiscViewDemo,
   tags: ['autodocs'],
 };

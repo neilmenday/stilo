@@ -66,7 +66,7 @@ function ControllableCalendarSetDemo({
 }
 
 const meta: Meta<typeof ControllableCalendarSetDemo> = {
-  title: 'Stilo/Components/ControllableCalendarSet',
+  title: 'Stilo/Component Sets/ControllableCalendarSet',
   component: ControllableCalendarSetDemo,
   tags: ['autodocs'],
 };

@@ -57,7 +57,7 @@ function RadioGroupDemo({
 }
 
 const meta: Meta<typeof RadioGroupDemo> = {
-  title: 'Stilo/Components/RadioGroup',
+  title: 'Stilo/Components - Passive/RadioGroup',
   component: RadioGroupDemo,
   tags: ['autodocs'],
 };

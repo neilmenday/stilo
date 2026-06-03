@@ -65,7 +65,7 @@ function ControllableGridSetDemo({
 }
 
 const meta: Meta<typeof ControllableGridSetDemo> = {
-  title: 'Stilo/Components/ControllableGridSet',
+  title: 'Stilo/Component Sets/ControllableGridSet',
   component: ControllableGridSetDemo,
   tags: ['autodocs'],
 };

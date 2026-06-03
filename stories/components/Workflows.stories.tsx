@@ -111,7 +111,7 @@ function SteppedWorkflowDemo({
 }
 
 const meta: Meta<typeof EditWorkflowDemo> = {
-  title: 'Stilo/Components/Workflows',
+  title: 'Stilo/Workflows/Workflows',
   component: EditWorkflowDemo,
   tags: ['autodocs'],
 };

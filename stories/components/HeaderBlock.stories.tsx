@@ -42,7 +42,7 @@ function HeaderBlockDemo({
 }
 
 const meta: Meta<typeof HeaderBlockDemo> = {
-  title: 'Stilo/Components/HeaderBlock',
+  title: 'Stilo/Foundations/HeaderBlock',
   component: HeaderBlockDemo,
   tags: ['autodocs'],
 };

@@ -57,7 +57,7 @@ function ListViewWithTabsDemo({
 }
 
 const meta: Meta<typeof ListViewWithTabsDemo> = {
-  title: 'Stilo/Components/ListViewWithTabs',
+  title: 'Stilo/Views/ListViewWithTabs',
   component: ListViewWithTabsDemo,
   tags: ['autodocs'],
 };

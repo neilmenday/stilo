@@ -32,7 +32,7 @@ function FilterResultsBarDemo({ pills, onClearAll }: FilterResultsBarProps) {
 }
 
 const meta: Meta<typeof FilterResultsBarDemo> = {
-  title: 'Stilo/Components/FilterResultsBar',
+  title: 'Stilo/Components - Passive/FilterResultsBar',
   component: FilterResultsBarDemo,
   tags: ['autodocs'],
 };

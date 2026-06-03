@@ -50,7 +50,7 @@ function CheckboxToggleDemo({
 }
 
 const meta: Meta<typeof CheckboxToggleDemo> = {
-  title: 'Stilo/Components/CheckboxToggle',
+  title: 'Stilo/Components - Passive/CheckboxToggle',
   component: CheckboxToggleDemo,
   tags: ['autodocs'],
 };

@@ -78,7 +78,7 @@ function TableDemo({
 }
 
 const meta: Meta<typeof TableDemo> = {
-  title: 'Stilo/Components/Table',
+  title: 'Stilo/Components - Passive/Table',
   component: TableDemo,
   tags: ['autodocs'],
 };

@@ -57,7 +57,7 @@ function AvatarListItemDemo({
 }
 
 const meta: Meta<typeof AvatarListItemDemo> = {
-  title: 'Stilo/Components/AvatarListItem',
+  title: 'Stilo/Components - Passive/AvatarListItem',
   component: AvatarListItemDemo,
   tags: ['autodocs'],
 };

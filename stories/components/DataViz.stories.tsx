@@ -34,7 +34,7 @@ function DataVizDemo({
 }
 
 const meta: Meta<typeof DataVizDemo> = {
-  title: 'Stilo/Components/DataViz',
+  title: 'Stilo/DataViz/DataViz',
   component: DataVizDemo,
   tags: ['autodocs'],
 };

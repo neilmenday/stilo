@@ -16,7 +16,7 @@ function SpacingScale() {
 }
 
 const meta: Meta = {
-  title: 'Stilo/Tokens/Spacing',
+  title: 'Stilo/Foundations/Tokens/Spacing',
   component: SpacingScale,
   tags: ['autodocs'],
 };

@@ -36,7 +36,7 @@ function PillDemo({
 }
 
 const meta: Meta<typeof PillDemo> = {
-  title: 'Stilo/Components/Pill',
+  title: 'Stilo/Components - Passive/Pill',
   component: PillDemo,
   tags: ['autodocs'],
 };

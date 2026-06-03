@@ -47,7 +47,7 @@ function DrawerPanelDemo({
 }
 
 const meta: Meta<typeof DrawerPanelDemo> = {
-  title: 'Stilo/Components/DrawerPanel',
+  title: 'Stilo/Foundations/DrawerPanel',
   component: DrawerPanelDemo,
   tags: ['autodocs'],
 };

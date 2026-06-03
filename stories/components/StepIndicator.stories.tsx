@@ -48,7 +48,7 @@ function StepIndicatorDemo({
 }
 
 const meta: Meta<typeof StepIndicatorDemo> = {
-  title: 'Stilo/Components/StepIndicator',
+  title: 'Stilo/Components - Passive/StepIndicator',
   component: StepIndicatorDemo,
   tags: ['autodocs'],
 };

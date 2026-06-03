@@ -43,7 +43,7 @@ function ActionsSetDemo({
 }
 
 const meta: Meta<typeof ActionsSetDemo> = {
-  title: 'Stilo/Components/ActionsSet',
+  title: 'Stilo/Component Sets/ActionsSet',
   component: ActionsSetDemo,
   tags: ['autodocs'],
 };

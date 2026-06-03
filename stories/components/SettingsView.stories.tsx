@@ -55,7 +55,7 @@ function SettingsViewDemo({
 }
 
 const meta: Meta<typeof SettingsViewDemo> = {
-  title: 'Stilo/Components/SettingsView',
+  title: 'Stilo/Views/SettingsView',
   component: SettingsViewDemo,
   tags: ['autodocs'],
 };

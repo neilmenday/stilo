@@ -40,7 +40,7 @@ function ButtonDemo({
 }
 
 const meta: Meta<typeof ButtonDemo> = {
-  title: 'Stilo/Components/Button',
+  title: 'Stilo/Components - Passive/Button',
   component: ButtonDemo,
   tags: ['autodocs'],
 };

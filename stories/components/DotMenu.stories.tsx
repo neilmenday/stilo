@@ -52,7 +52,7 @@ function DotMenuDemo({
 }
 
 const meta: Meta<typeof DotMenuDemo> = {
-  title: 'Stilo/Components/DotMenu',
+  title: 'Stilo/Components - Passive/DotMenu',
   component: DotMenuDemo,
   tags: ['autodocs'],
 };

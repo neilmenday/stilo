@@ -44,7 +44,7 @@ function PillColorPickerDemo({ label = 'Colour', value: valueProp, onChange }: P
 }
 
 const meta: Meta<typeof PillColorPickerDemo> = {
-  title: 'Stilo/Components/PillColorPicker',
+  title: 'Stilo/Component Sets/PillColorPicker',
   component: PillColorPickerDemo,
   tags: ['autodocs'],
 };

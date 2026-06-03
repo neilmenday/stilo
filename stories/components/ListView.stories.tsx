@@ -24,7 +24,7 @@ function ListViewDemo({
 }
 
 const meta: Meta<typeof ListViewDemo> = {
-  title: 'Stilo/Components/ListView',
+  title: 'Stilo/Views/ListView',
   component: ListViewDemo,
   tags: ['autodocs'],
 };

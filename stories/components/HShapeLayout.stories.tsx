@@ -26,7 +26,7 @@ function HShapeLayoutDemo({
 }
 
 const meta: Meta<typeof HShapeLayoutDemo> = {
-  title: 'Stilo/Components/HShapeLayout',
+  title: 'Stilo/Foundations/HShapeLayout',
   component: HShapeLayoutDemo,
   tags: ['autodocs'],
 };

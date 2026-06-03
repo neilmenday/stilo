@@ -22,7 +22,7 @@ function RadiusScale() {
 }
 
 const meta: Meta = {
-  title: 'Stilo/Tokens/Radius',
+  title: 'Stilo/Foundations/Tokens/Radius',
   component: RadiusScale,
   tags: ['autodocs'],
 };

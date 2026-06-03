@@ -26,7 +26,7 @@ function TabBarDemo({ tabs, activeId, onChange }: TabBarProps) {
 }
 
 const meta: Meta<typeof TabBarDemo> = {
-  title: 'Stilo/Components/Tab',
+  title: 'Stilo/Components - Passive/Tab',
   component: TabBarDemo,
   tags: ['autodocs'],
 };

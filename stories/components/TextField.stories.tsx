@@ -55,7 +55,7 @@ function TextFieldDemo({
 }
 
 const meta: Meta<typeof TextFieldDemo> = {
-  title: 'Stilo/Components/TextField',
+  title: 'Stilo/Components - Passive/TextField',
   component: TextFieldDemo,
   tags: ['autodocs'],
 };

@@ -69,7 +69,7 @@ function ControllableTableSetDemo({
 }
 
 const meta: Meta<typeof ControllableTableSetDemo> = {
-  title: 'Stilo/Components/ControllableTableSet',
+  title: 'Stilo/Component Sets/ControllableTableSet',
   component: ControllableTableSetDemo,
   tags: ['autodocs'],
 };

@@ -54,7 +54,7 @@ function AppSidebarDemo({
 }
 
 const meta: Meta<typeof AppSidebarDemo> = {
-  title: 'Stilo/Components/AppSidebar',
+  title: 'Stilo/Foundations/AppSidebar',
   component: AppSidebarDemo,
   tags: ['autodocs'],
 };

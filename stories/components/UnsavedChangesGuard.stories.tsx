@@ -54,7 +54,7 @@ function UnsavedChangesGuardDemo({
 }
 
 const meta: Meta<typeof UnsavedChangesGuardDemo> = {
-  title: 'Stilo/Components/UnsavedChangesGuard',
+  title: 'Stilo/Foundations/UnsavedChangesGuard',
   component: UnsavedChangesGuardDemo,
   tags: ['autodocs'],
 };

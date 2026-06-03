@@ -44,7 +44,7 @@ function FunctionsBarDemo({
 }
 
 const meta: Meta<typeof FunctionsBarDemo> = {
-  title: 'Stilo/Components/FunctionsBar',
+  title: 'Stilo/Component Sets/FunctionsBar',
   component: FunctionsBarDemo,
   tags: ['autodocs'],
 };

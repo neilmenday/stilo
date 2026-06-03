@@ -29,7 +29,7 @@ function AvatarDemo({ type = 'initials', initials = 'NM', src, alt }: AvatarProp
 }
 
 const meta: Meta<typeof AvatarDemo> = {
-  title: 'Stilo/Components/Avatar',
+  title: 'Stilo/Components - Passive/Avatar',
   component: AvatarDemo,
   tags: ['autodocs'],
 };

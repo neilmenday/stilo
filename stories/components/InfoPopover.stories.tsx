@@ -40,7 +40,7 @@ function InfoPopoverDemo({
 }
 
 const meta: Meta<typeof InfoPopoverDemo> = {
-  title: 'Stilo/Components/InfoPopover',
+  title: 'Stilo/Components - Passive/InfoPopover',
   component: InfoPopoverDemo,
   tags: ['autodocs'],
 };

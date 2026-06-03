@@ -24,7 +24,7 @@ function FShapeLayoutDemo({ sidebar, children }: FShapeLayoutProps) {
 }
 
 const meta: Meta<typeof FShapeLayoutDemo> = {
-  title: 'Stilo/Components/FShapeLayout',
+  title: 'Stilo/Foundations/FShapeLayout',
   component: FShapeLayoutDemo,
   tags: ['autodocs'],
 };

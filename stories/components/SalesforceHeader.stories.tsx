@@ -47,7 +47,7 @@ function SalesforceHeaderDemo({
 }
 
 const meta: Meta<typeof SalesforceHeaderDemo> = {
-  title: 'Stilo/Components/SalesforceHeader',
+  title: 'Stilo/Foundations/SalesforceHeader',
   component: SalesforceHeaderDemo,
   tags: ['autodocs'],
 };

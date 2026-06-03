@@ -48,7 +48,7 @@ function ButtonGroupDemo({
 }
 
 const meta: Meta<typeof ButtonGroupDemo> = {
-  title: 'Stilo/Components/ButtonGroup',
+  title: 'Stilo/Components - Passive/ButtonGroup',
   component: ButtonGroupDemo,
   tags: ['autodocs'],
 };

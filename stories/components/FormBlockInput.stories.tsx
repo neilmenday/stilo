@@ -44,7 +44,7 @@ function FormBlockInputDemo({
 }
 
 const meta: Meta<typeof FormBlockInputDemo> = {
-  title: 'Stilo/Components/FormBlockInput',
+  title: 'Stilo/Component Sets/FormBlockInput',
   component: FormBlockInputDemo,
   tags: ['autodocs'],
 };

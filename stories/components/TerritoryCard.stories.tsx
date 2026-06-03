@@ -45,7 +45,7 @@ function TerritoryCardDemo({
 }
 
 const meta: Meta<typeof TerritoryCardDemo> = {
-  title: 'Stilo/Components/TerritoryCard',
+  title: 'Stilo/Component Sets/TerritoryCard',
   component: TerritoryCardDemo,
   tags: ['autodocs'],
 };

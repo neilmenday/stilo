@@ -38,7 +38,7 @@ function BoxDemo({ title = 'Box title', pill, action = 'Edit', onAction, childre
 }
 
 const meta: Meta<typeof BoxDemo> = {
-  title: 'Stilo/Components/Box',
+  title: 'Stilo/Foundations/Box',
   component: BoxDemo,
   tags: ['autodocs'],
 };

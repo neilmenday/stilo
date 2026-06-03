@@ -48,7 +48,7 @@ function PopoverDemo({
 }
 
 const meta: Meta<typeof PopoverDemo> = {
-  title: 'Stilo/Components/Popover',
+  title: 'Stilo/Components - Passive/Popover',
   component: PopoverDemo,
   tags: ['autodocs'],
 };

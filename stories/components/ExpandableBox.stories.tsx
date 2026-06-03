@@ -46,7 +46,7 @@ function ExpandableBoxDemo({
 }
 
 const meta: Meta<typeof ExpandableBoxDemo> = {
-  title: 'Stilo/Components/ExpandableBox',
+  title: 'Stilo/Components - Passive/ExpandableBox',
   component: ExpandableBoxDemo,
   tags: ['autodocs'],
 };

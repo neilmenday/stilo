@@ -23,7 +23,7 @@ function BreadcrumbDemo({ items }: BreadcrumbProps) {
 }
 
 const meta: Meta<typeof BreadcrumbDemo> = {
-  title: 'Stilo/Components/Breadcrumb',
+  title: 'Stilo/Components - Passive/Breadcrumb',
   component: BreadcrumbDemo,
   tags: ['autodocs'],
 };

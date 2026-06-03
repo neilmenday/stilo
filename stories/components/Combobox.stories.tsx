@@ -63,7 +63,7 @@ function ComboboxDemo({
 }
 
 const meta: Meta<typeof ComboboxDemo> = {
-  title: 'Stilo/Components/Combobox',
+  title: 'Stilo/Components - Passive/Combobox',
   component: ComboboxDemo,
   tags: ['autodocs'],
 };

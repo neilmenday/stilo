@@ -73,7 +73,7 @@ function CodeTextareaDemo({
 }
 
 const meta: Meta<typeof CodeTextareaDemo> = {
-  title: 'Stilo/Components/CodeTextarea',
+  title: 'Stilo/Components - Passive/CodeTextarea',
   component: CodeTextareaDemo,
   tags: ['autodocs'],
 };

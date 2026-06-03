@@ -48,7 +48,7 @@ function SettingsViewWithTabsDemo({
 }
 
 const meta: Meta<typeof SettingsViewWithTabsDemo> = {
-  title: 'Stilo/Components/SettingsViewWithTabs',
+  title: 'Stilo/Views/SettingsViewWithTabs',
   component: SettingsViewWithTabsDemo,
   tags: ['autodocs'],
 };

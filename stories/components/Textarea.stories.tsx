@@ -64,7 +64,7 @@ function TextareaDemo({
 }
 
 const meta: Meta<typeof TextareaDemo> = {
-  title: 'Stilo/Components/Textarea',
+  title: 'Stilo/Components - Passive/Textarea',
   component: TextareaDemo,
   tags: ['autodocs'],
 };

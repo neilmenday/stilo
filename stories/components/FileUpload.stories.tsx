@@ -53,7 +53,7 @@ function FileUploadDemo({
 }
 
 const meta: Meta<typeof FileUploadDemo> = {
-  title: 'Stilo/Components/FileUpload',
+  title: 'Stilo/Components - Passive/FileUpload',
   component: FileUploadDemo,
   tags: ['autodocs'],
 };

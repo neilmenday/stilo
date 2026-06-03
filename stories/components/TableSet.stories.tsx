@@ -54,7 +54,7 @@ function TableSetDemo({ columns = COLS, rows = ROWS, variant = 'drawer' }: Table
 }
 
 const meta: Meta<typeof TableSetDemo> = {
-  title: 'Stilo/Components/TableSet',
+  title: 'Stilo/Component Sets/TableSet',
   component: TableSetDemo,
   tags: ['autodocs'],
 };

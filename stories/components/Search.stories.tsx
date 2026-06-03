@@ -44,7 +44,7 @@ function SearchDemo({
 }
 
 const meta: Meta<typeof SearchDemo> = {
-  title: 'Stilo/Components/Search',
+  title: 'Stilo/Components - Passive/Search',
   component: SearchDemo,
   tags: ['autodocs'],
 };
