@@ -4,112 +4,129 @@ import { useSettingsView } from '../../src/components/SettingsView';
 import { FormBlockSettings } from '../../src/components/FormBlockSettings/FormBlockSettings';
 import { FormBlockInput } from '../../src/components/FormBlockInput/FormBlockInput';
 import { FormBlockExpandable } from '../../src/components/FormBlockExpandable/FormBlockExpandable';
-import type { SettingsViewProps, FormBlockElement } from '../../src/components/SettingsView';
+import { FormBlockStacked } from '../../src/components/FormBlockStacked/FormBlockStacked';
 import type { FormBlockFieldSlotProps } from '../../src/components/FormBlockSettings/FormBlockSettings';
 
-// Neutral field renderer for stilo stories — no CakeUI components
+type FormBlockType = 'Settings' | 'Input' | 'Expandable' | 'Stacked';
+
+// ─── Neutral field renderer ───────────────────────────────────────────────────
 function NeutralField({ field, inactive }: FormBlockFieldSlotProps) {
-  if (field.type === 'toggle') {
-    return (
-      <label style={{ display: 'flex', alignItems: 'center', gap: 6, opacity: inactive ? 0.4 : 1 }}>
-        <input type="checkbox" disabled={inactive} />
-        <span style={{ fontSize: 13, fontFamily: 'system-ui', color: '#111' }}>{field.label}</span>
-      </label>
-    );
-  }
-  if (field.type === 'textfield') {
-    return <input type="text" placeholder={field.placeholder ?? 'Enter'} disabled={inactive} style={{ fontSize: 13, fontFamily: 'system-ui', padding: '4px 8px', border: '1px solid #ccc', borderRadius: 4, opacity: inactive ? 0.4 : 1 }} />;
-  }
-  return (
-    <select disabled={inactive} style={{ fontSize: 13, fontFamily: 'system-ui', padding: '4px 8px', border: '1px solid #ccc', borderRadius: 4, opacity: inactive ? 0.4 : 1 }}>
+  const [on, setOn] = useState(false);
+  if (field.type === 'toggle') return (
+    <div onClick={() => !inactive && setOn(v => !v)} style={{ width: 36, height: 20, borderRadius: 10, background: on ? '#111' : '#ccc', position: 'relative', cursor: inactive ? 'default' : 'pointer', opacity: inactive ? 0.4 : 1, flexShrink: 0, transition: 'background 0.15s' }}>
+      <div style={{ position: 'absolute', top: 2, left: on ? 18 : 2, width: 16, height: 16, borderRadius: '50%', background: '#fff', transition: 'left 0.15s' }} />
+    </div>
+  );
+  if (field.type === 'combobox') return (
+    <select disabled={inactive} style={{ fontSize: 12, padding: '5px 8px', border: '1px solid #e0e0e0', borderRadius: 4, color: '#111', opacity: inactive ? 0.4 : 1 }}>
       {(field.items ?? []).map(i => <option key={i.value} value={i.value}>{i.label}</option>)}
     </select>
   );
+  return <input type="text" placeholder={field.placeholder ?? 'Enter'} disabled={inactive} style={{ fontSize: 12, padding: '5px 8px', border: '1px solid #e0e0e0', borderRadius: 4, opacity: inactive ? 0.4 : 1 }} />;
 }
 
-function SettingsViewDemo(props: SettingsViewProps) {
-  const { activeNavItem, handleNavChange } = useSettingsView({
-    navItems: props.navItems,
-    activeNavItem: props.activeNavItem,
-    onNavChange: props.onNavChange,
-  });
+function NeutralInput({ label, multiline }: { label: string; multiline?: boolean }) {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+      <label style={{ fontSize: 12, fontFamily: 'system-ui', color: '#555' }}>{label}</label>
+      {multiline
+        ? <textarea rows={3} style={{ width: '100%', padding: '6px 10px', border: '1px solid #e0e0e0', borderRadius: 4, fontSize: 13, fontFamily: 'system-ui', resize: 'vertical', boxSizing: 'border-box' }} />
+        : <input type="text" style={{ width: '100%', padding: '6px 10px', border: '1px solid #e0e0e0', borderRadius: 4, fontSize: 13, fontFamily: 'system-ui', boxSizing: 'border-box' }} />
+      }
+    </div>
+  );
+}
 
-  const blocks: FormBlockElement[] = [
+// ─── FormBlock switcher ───────────────────────────────────────────────────────
+function ActiveFormBlock({ type }: { type: FormBlockType }) {
+  if (type === 'Settings') return (
     <FormBlockSettings
-      key="general"
-      title="General"
+      title="Preferences"
       showDescriptions
       rows={[
-        { title: 'Timezone', description: 'Used for scheduling and reporting.', fields: [{ type: 'combobox', label: 'Timezone', items: [{ value: 'utc', label: 'UTC' }, { value: 'london', label: 'Europe / London' }] }] },
-        { title: 'Language', fields: [{ type: 'combobox', label: 'Language', items: [{ value: 'en', label: 'English' }, { value: 'fr', label: 'French' }] }] },
-        { title: 'Notifications', description: 'Send email when records are assigned.', fields: [{ type: 'toggle', label: 'Email notifications' }] },
+        { title: 'Timezone', description: 'Used for scheduling and reporting.', fields: [{ type: 'combobox', items: [{ value: 'utc', label: 'UTC' }, { value: 'eu', label: 'Europe / London' }] }] },
+        { title: 'Notifications', description: 'Receive email when records are assigned.', fields: [{ type: 'toggle', label: 'Email' }] },
+        { title: 'Report frequency', fields: [{ type: 'combobox', items: [{ value: 'daily', label: 'Daily' }, { value: 'weekly', label: 'Weekly' }] }, { type: 'combobox', items: [{ value: 'email', label: 'Email' }, { value: 'slack', label: 'Slack' }] }] },
       ]}
       renderField={props => <NeutralField {...props} />}
-    />,
+    />
+  );
+  if (type === 'Input') return (
     <FormBlockInput
-      key="name"
-      nameField={<input type="text" placeholder="Name" style={{ width: '100%', fontSize: 13, fontFamily: 'system-ui', padding: '4px 8px', border: '1px solid #ccc', borderRadius: 4 }} />}
-      descriptionField={<textarea placeholder="Description" rows={3} style={{ width: '100%', fontSize: 13, fontFamily: 'system-ui', padding: '4px 8px', border: '1px solid #ccc', borderRadius: 4 }} />}
-    />,
-    <FormBlockExpandable key="advanced" title="Advanced options" defaultOpen={false}>
-      <p style={{ fontSize: 13, fontFamily: 'system-ui', color: '#555', margin: 0 }}>Advanced settings go here.</p>
-    </FormBlockExpandable>,
-  ];
+      nameField={<NeutralInput label="Name" />}
+      descriptionField={<NeutralInput label="Description" multiline />}
+      notification={<div style={{ fontSize: 12, padding: '8px 12px', background: '#f5f5f5', border: '1px solid #e0e0e0', borderRadius: 4, color: '#555' }}>Changes take effect on next login.</div>}
+    />
+  );
+  if (type === 'Expandable') return (
+    <FormBlockExpandable title="Advanced options" defaultOpen showPill pillLabel="3">
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 12, paddingTop: 8 }}>
+        <NeutralInput label="Custom domain" />
+        <NeutralInput label="Webhook URL" />
+      </div>
+    </FormBlockExpandable>
+  );
+  return (
+    <FormBlockStacked title="Contact details">
+      <NeutralInput label="First name" />
+      <NeutralInput label="Last name" />
+      <NeutralInput label="Email address" />
+    </FormBlockStacked>
+  );
+}
+
+// ─── SettingsView demo ────────────────────────────────────────────────────────
+interface SettingsViewDemoProps {
+  title: string;
+  navItems: string[];
+  activeNavItem: string;
+  formBlockType: FormBlockType;
+}
+
+function SettingsViewDemo({ title, navItems, activeNavItem: initialActive, formBlockType }: SettingsViewDemoProps) {
+  const { activeNavItem, handleNavChange } = useSettingsView({ navItems, activeNavItem: initialActive });
 
   return (
-    <div style={{ fontFamily: 'system-ui, sans-serif', padding: 24, display: 'flex', gap: 24 }}>
-      {/* Nav */}
-      <nav style={{ width: 160, display: 'flex', flexDirection: 'column', gap: 4 }}>
-        {(props.navItems ?? ['General', 'Team']).map(item => (
-          <button
-            key={item}
-            onClick={() => handleNavChange(item)}
-            style={{ textAlign: 'left', padding: '6px 10px', fontSize: 13, fontFamily: 'system-ui', border: 'none', borderRadius: 4, cursor: 'pointer', background: activeNavItem === item ? '#e0e0e0' : 'transparent', fontWeight: activeNavItem === item ? 700 : 400, color: '#111' }}
-          >
+    <div style={{ fontFamily: 'system-ui, sans-serif', display: 'flex', minHeight: 400 }}>
+      <nav style={{ width: 160, borderRight: '1px solid #e0e0e0', padding: '16px 8px', display: 'flex', flexDirection: 'column', gap: 2, background: '#fafafa' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: '#888', textTransform: 'uppercase', letterSpacing: 1, padding: '0 8px 8px' }}>{title}</div>
+        {navItems.map(item => (
+          <button key={item} onClick={() => handleNavChange(item)} style={{ textAlign: 'left', padding: '6px 10px', fontSize: 13, border: 'none', borderRadius: 4, cursor: 'pointer', background: activeNavItem === item ? '#e0e0e0' : 'transparent', fontWeight: activeNavItem === item ? 700 : 400, color: '#111' }}>
             {item}
           </button>
         ))}
       </nav>
-
-      {/* FormBlocks as structural children */}
-      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 24 }}>
-        {blocks}
+      <div style={{ flex: 1, padding: 24 }}>
+        <ActiveFormBlock type={formBlockType} />
       </div>
     </div>
   );
 }
 
+// ─── Meta ─────────────────────────────────────────────────────────────────────
 const meta: Meta<typeof SettingsViewDemo> = {
   title: 'Stilo/Views/SettingsView',
   component: SettingsViewDemo,
   tags: ['autodocs'],
-  parameters: {
-    docs: {
-      description: {
-        component: `
-SettingsView is a layout shell whose children are FormBlock elements.
-\`children\` is typed as \`FormBlockElement | FormBlockElement[]\` — the composition
-contract is enforced structurally. Extensions render the FormBlocks with their
-own visual tokens; the structural relationship is defined here in Stilo.
-
-**Accepted children:**
-- \`<FormBlockSettings>\` — titled section with labelled rows and form field slots
-- \`<FormBlockInput>\` — primary name + description text entry
-- \`<FormBlockExpandable>\` — collapsible section wrapping any FormBlock content
-        `.trim(),
-      },
+  argTypes: {
+    formBlockType: {
+      control: 'select',
+      options: ['Settings', 'Input', 'Expandable', 'Stacked'] satisfies FormBlockType[],
+      description: 'The FormBlock type rendered as the view\'s content',
     },
+    title: { control: 'text' },
+    navItems: { control: 'object' },
+    activeNavItem: { control: 'text' },
   },
 };
 export default meta;
 type Story = StoryObj<typeof SettingsViewDemo>;
 
-export const WithFormBlocks: Story = {
-  name: 'SettingsView with FormBlocks',
+export const Playground: Story = {
   args: {
     title: 'Settings',
     navItems: ['General', 'Team', 'Notifications'],
     activeNavItem: 'General',
-    isDirty: false,
+    formBlockType: 'Settings',
   },
 };
