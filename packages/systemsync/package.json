@@ -1,0 +1,31 @@
+{
+  "name": "@neilmenday/systemsync",
+  "version": "0.1.0",
+  "description": "Generate and sync UI extensions from any structural design system skeleton",
+  "bin": {
+    "systemsync": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node src/index.ts"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^11.0.0",
+    "dotenv": "^16.0.0",
+    "ts-morph": "^21.0.0",
+    "node-fetch": "^3.3.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0",
+    "ts-node": "^10.9.0"
+  },
+  "keywords": ["design-system", "stilo", "figma", "systemsync", "ui-extension"],
+  "author": "neilmenday",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github-neilmenday:neilmenday/stilo.git"
+  }
+}
