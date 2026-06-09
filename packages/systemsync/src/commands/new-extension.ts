@@ -1,4 +1,5 @@
 import chalk from 'chalk';
+import os from 'os';
 import path from 'path';
 import fs from 'fs';
 import { execSync } from 'child_process';
@@ -11,7 +12,7 @@ interface NewExtensionOptions {
   name: string;
   source: string;
   github: string;  // e.g. "acme-corp/acmeui"
-  dir?: string;    // local output directory, defaults to ./{repoName}
+  dir?: string;    // local output directory, defaults to ~/{repoName}
 }
 
 export async function newExtension(opts: NewExtensionOptions) {
@@ -33,7 +34,7 @@ export async function newExtension(opts: NewExtensionOptions) {
 
   // Determine local directory
   const repoName   = opts.github.split('/')[1];
-  const targetDir  = path.resolve(opts.dir ?? `./${repoName}`);
+  const targetDir  = path.resolve(opts.dir ?? path.join(os.homedir(), repoName));
 
   if (fs.existsSync(targetDir)) {
     console.error(chalk.red(`\n  Error: Directory already exists: ${targetDir}\n`));
