@@ -12,7 +12,7 @@ export function ghIsAuthenticated(): boolean {
 export function createRepo(repoPath: string, description: string): string {
   // repoPath e.g. "acme-corp/acmeui"
   const result = execSync(
-    `gh repo create ${repoPath} --public --confirm --description "${description}"`,
+    `gh repo create ${repoPath} --public --description "${description}" --yes`,
     { encoding: 'utf-8' }
   );
   return result.trim();
