@@ -1,6 +1,7 @@
 import chalk from 'chalk';
 import fs from 'fs';
 import path from 'path';
+import * as readline from 'readline';
 import { SystemSyncConfig, FigmaMapping, ComponentMeta } from '../types';
 import { getAdapter } from '../adapters';
 import { parseComponentsDir } from '../lib/parser';
@@ -18,19 +19,23 @@ export async function generate(config: SystemSyncConfig, extensionRoot: string) 
   let fileKey    = config.figma.fileKey;
 
   if (!fileKey) {
-    console.log(chalk.dim('  No Figma file linked — creating one...'));
-    try {
-      const created = await figma.createFile(config.extension.name);
-      fileKey = created.key;
-      const configPath = path.join(extensionRoot, 'systemsync.config.json');
-      const raw = JSON.parse(fs.readFileSync(configPath, 'utf-8'));
-      raw.figma.fileKey = fileKey;
-      fs.writeFileSync(configPath, JSON.stringify(raw, null, 2) + '\n');
-      console.log(chalk.green(`  ✓ Created Figma file: ${fileKey}`));
-    } catch (err) {
-      console.error(chalk.red(`  Error creating Figma file: ${(err as Error).message}`));
+    console.log(chalk.yellow(
+      '  No Figma file linked.\n\n' +
+      `  1. Open Figma and create a new file named "${config.extension.name}"\n` +
+      '  2. Copy the file key from the URL:\n' +
+      '     figma.com/file/<KEY>/...\n'
+    ));
+    fileKey = await prompt('  Enter file key: ');
+    if (!fileKey.trim()) {
+      console.error(chalk.red('  Aborted — no file key provided.'));
       process.exit(1);
     }
+    fileKey = fileKey.trim();
+    const configPath = path.join(extensionRoot, 'systemsync.config.json');
+    const raw = JSON.parse(fs.readFileSync(configPath, 'utf-8'));
+    raw.figma.fileKey = fileKey;
+    fs.writeFileSync(configPath, JSON.stringify(raw, null, 2) + '\n');
+    console.log(chalk.green(`  ✓ Saved file key to systemsync.config.json`));
   }
 
   let mapping: FigmaMapping =
@@ -127,4 +132,9 @@ function chunk<T>(arr: T[], size: number): T[][] {
   const result: T[][] = [];
   for (let i = 0; i < arr.length; i += size) result.push(arr.slice(i, i + size));
   return result;
+}
+
+function prompt(question: string): Promise<string> {
+  const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+  return new Promise(resolve => rl.question(question, answer => { rl.close(); resolve(answer); }));
 }
