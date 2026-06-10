@@ -34,3 +34,5 @@ npm install @neilmenday/stilo
 ## Extending Stilo
 
 Create a separate repository that depends on this package and applies your visual layer — colours, typography, iconography, motion — on top of the structural primitives. Stilo has no knowledge of what extends it.
+
+See [CONSUMING.md](./CONSUMING.md) for conventions on Storybook structure, the governance contract, and local development setup.
