@@ -37,6 +37,9 @@ export const figma = {
 
   postVariables: (fileKey: string, body: unknown) =>
     figma.post(`/files/${fileKey}/variables`, body),
+
+  createFile: (name: string) =>
+    figma.post<{ key: string; name: string }>('/files', { name }),
 };
 
 export async function sleep(ms: number) {

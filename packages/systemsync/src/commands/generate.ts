@@ -1,4 +1,5 @@
 import chalk from 'chalk';
+import fs from 'fs';
 import path from 'path';
 import { SystemSyncConfig, FigmaMapping, ComponentMeta } from '../types';
 import { getAdapter } from '../adapters';
@@ -12,16 +13,24 @@ const BATCH_PAUSE  = 600;
 export async function generate(config: SystemSyncConfig, extensionRoot: string) {
   console.log(chalk.bold('\n systemsync generate\n'));
 
-  const adapter    = getAdapter(config.extension.source);
-  const patterns   = adapter.getPropPatterns();
-  const { fileKey } = config.figma;
+  const adapter  = getAdapter(config.extension.source);
+  const patterns = adapter.getPropPatterns();
+  let fileKey    = config.figma.fileKey;
 
   if (!fileKey) {
-    console.error(chalk.red(
-      '  Error: figma.fileKey is not set in systemsync.config.json.\n' +
-      '  Create a Figma file and add its key to the config first.\n'
-    ));
-    process.exit(1);
+    console.log(chalk.dim('  No Figma file linked — creating one...'));
+    try {
+      const created = await figma.createFile(config.extension.name);
+      fileKey = created.key;
+      const configPath = path.join(extensionRoot, 'systemsync.config.json');
+      const raw = JSON.parse(fs.readFileSync(configPath, 'utf-8'));
+      raw.figma.fileKey = fileKey;
+      fs.writeFileSync(configPath, JSON.stringify(raw, null, 2) + '\n');
+      console.log(chalk.green(`  ✓ Created Figma file: ${fileKey}`));
+    } catch (err) {
+      console.error(chalk.red(`  Error creating Figma file: ${(err as Error).message}`));
+      process.exit(1);
+    }
   }
 
   let mapping: FigmaMapping =
