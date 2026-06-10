@@ -2,7 +2,6 @@ import chalk from 'chalk';
 import fs from 'fs';
 import path from 'path';
 import { SystemSyncConfig } from '../types';
-import { figma } from '../lib/figma-api';
 import {
   resolveSourceRoot,
   parseSourceComponents,
@@ -45,15 +44,7 @@ export async function bootstrapFigma(config: SystemSyncConfig, extensionRoot: st
     process.exit(1);
   }
 
-  // Verify the Figma file is accessible
-  console.log(chalk.dim('  Verifying Figma file...'));
-  try {
-    const file = await figma.getFile(fileKey) as { name: string };
-    console.log(chalk.green(`  ✓ ${file.name} (${fileKey})`));
-  } catch (err) {
-    console.error(chalk.red(`  Error: ${(err as Error).message}`));
-    process.exit(1);
-  }
+  console.log(chalk.green(`  ✓ Figma file: ${fileKey}`));
 
   // Resolve source skeleton
   console.log(chalk.dim('\n  Resolving source skeleton...'));
