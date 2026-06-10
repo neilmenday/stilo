@@ -2,11 +2,12 @@ import { Command } from 'commander';
 import * as dotenv from 'dotenv';
 import path from 'path';
 import fs from 'fs';
-import { newExtension } from './commands/new-extension';
-import { generate }     from './commands/generate';
-import { compose }      from './commands/compose';
-import { sync }         from './commands/sync';
-import { push }         from './commands/push';
+import { newExtension }   from './commands/new-extension';
+import { generate }       from './commands/generate';
+import { bootstrapFigma } from './commands/bootstrap-figma';
+import { compose }        from './commands/compose';
+import { sync }           from './commands/sync';
+import { push }           from './commands/push';
 import { listAdapters } from './adapters';
 import { SystemSyncConfig } from './types';
 
@@ -64,6 +65,20 @@ program
     }
     const config = loadConfig(extensionRoot);
     await generate(config, extensionRoot);
+  });
+
+program
+  .command('bootstrap-figma')
+  .description('One-time setup: create pages and scaffold Figma file from source skeleton')
+  .option('-r, --root <path>', 'Extension root directory', process.cwd())
+  .action(async (opts) => {
+    const extensionRoot = path.resolve(opts.root);
+    if (!process.env.FIGMA_TOKEN) {
+      console.error('Error: FIGMA_TOKEN is not set.');
+      process.exit(1);
+    }
+    const config = loadConfig(extensionRoot);
+    await bootstrapFigma(config, extensionRoot);
   });
 
 program

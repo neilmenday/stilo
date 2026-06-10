@@ -37,6 +37,11 @@ export const figma = {
 
   postVariables: (fileKey: string, body: unknown) =>
     figma.post(`/files/${fileKey}/variables`, body),
+
+  getFilePages: (fileKey: string) =>
+    figma.get<{ document: { children: Array<{ id: string; name: string; type: string }> } }>(
+      `/files/${fileKey}?depth=1`
+    ),
 };
 
 export async function sleep(ms: number) {
