@@ -1,7 +1,5 @@
 import chalk from 'chalk';
-import fs from 'fs';
 import path from 'path';
-import * as readline from 'readline';
 import { SystemSyncConfig, FigmaMapping, ComponentMeta } from '../types';
 import { getAdapter } from '../adapters';
 import { parseComponentsDir } from '../lib/parser';
@@ -19,23 +17,12 @@ export async function generate(config: SystemSyncConfig, extensionRoot: string) 
   let fileKey    = config.figma.fileKey;
 
   if (!fileKey) {
-    console.log(chalk.yellow(
-      '  No Figma file linked.\n\n' +
-      `  1. Open Figma and create a new file named "${config.extension.name}"\n` +
-      '  2. Copy the file key from the URL:\n' +
-      '     figma.com/file/<KEY>/...\n'
+    console.error(chalk.red(
+      '  Error: figma.fileKey is not set in systemsync.config.json.\n' +
+      '  When running via Claude Code, this is handled automatically via Figma MCP.\n' +
+      '  Otherwise, create a Figma file and add its key to systemsync.config.json manually.\n'
     ));
-    fileKey = await prompt('  Enter file key: ');
-    if (!fileKey.trim()) {
-      console.error(chalk.red('  Aborted — no file key provided.'));
-      process.exit(1);
-    }
-    fileKey = fileKey.trim();
-    const configPath = path.join(extensionRoot, 'systemsync.config.json');
-    const raw = JSON.parse(fs.readFileSync(configPath, 'utf-8'));
-    raw.figma.fileKey = fileKey;
-    fs.writeFileSync(configPath, JSON.stringify(raw, null, 2) + '\n');
-    console.log(chalk.green(`  ✓ Saved file key to systemsync.config.json`));
+    process.exit(1);
   }
 
   let mapping: FigmaMapping =
@@ -134,7 +121,3 @@ function chunk<T>(arr: T[], size: number): T[][] {
   return result;
 }
 
-function prompt(question: string): Promise<string> {
-  const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
-  return new Promise(resolve => rl.question(question, answer => { rl.close(); resolve(answer); }));
-}
