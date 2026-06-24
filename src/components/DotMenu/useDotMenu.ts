@@ -16,8 +16,8 @@ export function useDotMenu({ items, onSelect }: UseDotMenuOptions) {
         setIsOpen(false);
       }
     };
-    document.addEventListener('mousedown', handler);
-    return () => document.removeEventListener('mousedown', handler);
+    document.addEventListener('click', handler);
+    return () => document.removeEventListener('click', handler);
   }, []);
 
   useEffect(() => {
