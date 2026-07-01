@@ -17,6 +17,7 @@ export interface ConditionBuilderRowData {
 export interface ConditionBuilderProps {
   contained?:       boolean;
   showLegend?:      boolean;
+  showLogic?:       boolean;
   fieldOptions:     ComboboxItem[];
   conditionOptions: ComboboxItem[];
   renderValue?:     (row: ConditionBuilderRowData) => React.ReactNode;

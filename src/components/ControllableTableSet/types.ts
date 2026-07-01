@@ -34,6 +34,8 @@ export interface ControllableTableSetProps {
   offLabel?: string;
   showIdentifierIcon?: boolean;
   identifierIconName?: string;
+  showCheckbox?: boolean;
+  draggable?: boolean;
   showTotals?: boolean;
   totalsData?: Record<string, unknown>;
   contentText?:    string;

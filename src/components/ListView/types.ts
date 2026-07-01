@@ -1,4 +1,5 @@
 import type React from 'react';
+import type { ReactNode } from 'react';
 
 export interface ListViewContextValue {
   identifierCell?: 'AvatarListItem' | 'ListItem';
@@ -20,6 +21,7 @@ export interface ListViewProps {
   chooserLabel?:    string;
   avatarListItem?:  Record<string, unknown>;
   title:                    string;
+  titleAddon?:              ReactNode;
   onHelpClick?:             () => void;
   showHeaderChooser?:       boolean;
   headerChooserLabel?:      string;

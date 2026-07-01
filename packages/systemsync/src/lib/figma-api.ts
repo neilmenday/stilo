@@ -6,7 +6,7 @@ function getToken(): string {
   return token;
 }
 
-async function request<T>(method: string, path: string, body?: unknown): Promise<T> {
+async function request<T>(method: string, path: string, body?: unknown, attempt = 1): Promise<T> {
   const { default: fetch } = await import('node-fetch');
   const url = `${BASE}${path}`;
   const headers: Record<string, string> = {
@@ -19,6 +19,15 @@ async function request<T>(method: string, path: string, body?: unknown): Promise
     body: body ? JSON.stringify(body) : undefined,
   });
   const text = await res.text();
+
+  if (res.status === 429 && attempt <= 3) {
+    const retryAfter = Number(res.headers.get('retry-after') ?? 0);
+    const delay = retryAfter ? retryAfter * 1000 : attempt * 60_000;
+    process.stderr.write(`  Rate limited. Waiting ${delay / 1000}s (attempt ${attempt}/3)...\n`);
+    await sleep(delay);
+    return request<T>(method, path, body, attempt + 1);
+  }
+
   if (!res.ok) throw new Error(`Figma API ${method} ${path} failed ${res.status}: ${text}`);
   return JSON.parse(text) as T;
 }

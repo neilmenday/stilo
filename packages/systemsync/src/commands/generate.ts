@@ -4,10 +4,9 @@ import { SystemSyncConfig, FigmaMapping, ComponentMeta } from '../types';
 import { getAdapter } from '../adapters';
 import { parseComponentsDir } from '../lib/parser';
 import { readMapping, writeMapping, initMapping, isComponentMapped } from '../lib/mapper';
-import { figma, sleep } from '../lib/figma-api';
+import { figma } from '../lib/figma-api';
 
-const BATCH_SIZE   = 10;
-const BATCH_PAUSE  = 600;
+const BATCH_SIZE = 10;
 
 export async function generate(config: SystemSyncConfig, extensionRoot: string) {
   console.log(chalk.bold('\n systemsync generate\n'));
@@ -43,11 +42,21 @@ export async function generate(config: SystemSyncConfig, extensionRoot: string) 
     return;
   }
 
-  // Verify Figma file is accessible
+  // Fetch file once — resolve passive page ID up front, never again inside the loop
   console.log(chalk.dim('\nVerifying Figma file access...'));
+  let passivePageId: string;
   try {
-    const file = await figma.getFile(fileKey) as { name: string };
+    const file = await figma.getFile(fileKey) as {
+      name: string;
+      document: { children: Array<{ id: string; name: string }> };
+    };
     console.log(chalk.green(`  ✓ Figma file: ${file.name}`));
+    const passivePage = file.document.children.find(p => p.name === config.pages.passive);
+    if (!passivePage) {
+      console.error(chalk.red(`  Error: Page "${config.pages.passive}" not found in Figma file.`));
+      process.exit(1);
+    }
+    passivePageId = passivePage.id;
   } catch (err) {
     console.error(chalk.red(`  Error accessing Figma file: ${(err as Error).message}`));
     process.exit(1);
@@ -66,7 +75,7 @@ export async function generate(config: SystemSyncConfig, extensionRoot: string) 
 
     for (const component of batch) {
       try {
-        const nodeId = await createComponentShell(component, config, fileKey);
+        const nodeId = createComponentShell(component, passivePageId);
         mapping.components[component.name] = {
           nodeId,
           page: 'passive',
@@ -85,34 +94,14 @@ export async function generate(config: SystemSyncConfig, extensionRoot: string) 
     mapping.generatedAt = new Date().toISOString();
     writeMapping(extensionRoot, mapping);
 
-    if (b < batches.length - 1) {
-      console.log(chalk.dim(`  Pausing ${BATCH_PAUSE}ms...`));
-      await sleep(BATCH_PAUSE);
-    }
   }
 
   console.log(chalk.bold(`\n  Done. Created: ${created}  Failed: ${failed}\n`));
   console.log(chalk.dim(`  Mapping written to systemsync.figma.json\n`));
 }
 
-async function createComponentShell(
-  component: ComponentMeta,
-  config: SystemSyncConfig,
-  fileKey: string
-): Promise<string> {
-  // Fetch the file to get the passive page ID
-  const file = await figma.getFile(fileKey) as {
-    document: { children: Array<{ id: string; name: string }> }
-  };
-  const passivePage = file.document.children.find(
-    p => p.name === config.pages.passive
-  );
-  if (!passivePage) {
-    throw new Error(`Page "${config.pages.passive}" not found in Figma file`);
-  }
-  // Return page-scoped placeholder ID
-  // Actual node creation happens via Figma plugin API / MCP
-  return `${passivePage.id}::${component.name}`;
+function createComponentShell(component: ComponentMeta, passivePageId: string): string {
+  return `${passivePageId}::${component.name}`;
 }
 
 function chunk<T>(arr: T[], size: number): T[][] {

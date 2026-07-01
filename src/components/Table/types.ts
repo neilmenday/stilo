@@ -5,4 +5,5 @@ export interface TableProps {
   totalsData?: Record<string, unknown>;
   onSelectionChange?: (selectedCount: number) => void;
   showCheckbox?: boolean;
+  draggable?: boolean;
 }

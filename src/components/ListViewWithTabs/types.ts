@@ -6,7 +6,8 @@ export interface ListViewWithTabsProps {
   navItems?:        string[];
   activeNavItem?:   string;
   onNavChange?:     (item: string) => void;
-  breadcrumbItems?: { label: string; onClick?: () => void }[];
+  breadcrumbItems?:     { label: string; onClick?: () => void }[];
+  pageBreadcrumbItems?: { label: string; onClick?: () => void }[];
   chooserLabel?:    string;
   avatarListItem?:  Record<string, unknown>;
   title:                    string;

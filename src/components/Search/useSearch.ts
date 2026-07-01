@@ -1,17 +1,21 @@
 import { useState, useRef, useEffect } from 'react';
-import type { SearchVariant } from './types';
+import type { SearchVariant, SearchSelectItem } from './types';
 
 interface UseSearchOptions {
-  variant?: SearchVariant;
+  variant?:  SearchVariant;
   onChange?: (value: string) => void;
 }
 
 export function useSearch({ variant = 'Default', onChange }: UseSearchOptions = {}) {
-  const [inputValue, setInputValue] = useState(variant === 'Searched' ? 'Searched' : '');
-  const [isFocused,  setIsFocused]  = useState(false);
-  const [isHovered,  setIsHovered]  = useState(false);
-  const [pills,      setPills]      = useState([{ id: 1, label: 'Label' }, { id: 2, label: 'Label' }]);
-  const [pillInput,  setPillInput]  = useState('');
+  const [inputValue,    setInputValue]    = useState(variant === 'Searched' ? 'Searched' : '');
+  const [isFocused,     setIsFocused]     = useState(false);
+  const [isHovered,     setIsHovered]     = useState(false);
+  const [pills,         setPills]         = useState([{ id: 1, label: 'Label' }, { id: 2, label: 'Label' }]);
+  const [pillInput,     setPillInput]     = useState('');
+  const [selectOpen,    setSelectOpen]    = useState(false);
+  const [selectQuery,   setSelectQuery]   = useState('');
+  const [selectedItem,  setSelectedItem]  = useState<SearchSelectItem | null>(null);
+  const [selectValues,  setSelectValues]  = useState<string[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -52,6 +56,14 @@ export function useSearch({ variant = 'Default', onChange }: UseSearchOptions = 
     clearInput,
     addPill,
     removePill,
+    selectOpen,
+    setSelectOpen,
+    selectQuery,
+    setSelectQuery,
+    selectedItem,
+    setSelectedItem,
+    selectValues,
+    setSelectValues,
     focusProps: {
       onFocus: () => setIsFocused(true),
       onBlur:  () => setIsFocused(false),

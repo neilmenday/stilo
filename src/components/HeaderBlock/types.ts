@@ -1,5 +1,8 @@
+import type { ReactNode } from 'react';
+
 export interface HeaderBlockProps {
   title: string;
+  titleAddon?: ReactNode;
   actionLabel?:   string;
   onActionClick?: () => void;
   helpLabel?: string;

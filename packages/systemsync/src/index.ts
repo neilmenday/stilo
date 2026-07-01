@@ -58,8 +58,9 @@ program
   .option('-r, --root <path>', 'Extension root directory', process.cwd())
   .action(async (opts) => {
     const extensionRoot = path.resolve(opts.root);
+    dotenv.config({ path: path.join(extensionRoot, '.env'), override: true });
     if (!process.env.FIGMA_TOKEN) {
-      console.error('Error: FIGMA_TOKEN is not set.');
+      console.error('Error: FIGMA_TOKEN is not set. Add it to .env in your extension root.');
       process.exit(1);
     }
     const config = loadConfig(extensionRoot);
@@ -72,8 +73,9 @@ program
   .option('-r, --root <path>', 'Extension root directory', process.cwd())
   .action(async (opts) => {
     const extensionRoot = path.resolve(opts.root);
+    dotenv.config({ path: path.join(extensionRoot, '.env'), override: true });
     if (!process.env.FIGMA_TOKEN) {
-      console.error('Error: FIGMA_TOKEN is not set.');
+      console.error('Error: FIGMA_TOKEN is not set. Add it to .env in your extension root.');
       process.exit(1);
     }
     const config = loadConfig(extensionRoot);

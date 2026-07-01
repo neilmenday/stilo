@@ -7,7 +7,8 @@ export interface SettingsViewWithTabsProps {
   navItems?:        string[];
   activeNavItem?:   string;
   onNavChange?:     (item: string) => void;
-  breadcrumbItems?: { label: string; onClick?: () => void }[];
+  breadcrumbItems?:     { label: string; onClick?: () => void }[];
+  pageBreadcrumbItems?: { label: string; onClick?: () => void }[];
   chooserLabel?:    string;
   avatarListItem?:  AvatarListItemProps;
   title:                    string;

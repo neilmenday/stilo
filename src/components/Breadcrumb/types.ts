@@ -1,6 +1,7 @@
 export interface BreadcrumbItem {
   label: string;
   onClick?: () => void;
+  pill?: { label: string; variant?: string };
 }
 
 export interface BreadcrumbProps {
