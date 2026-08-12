@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { useInfoListSet } from '../../src/components/InfoListSet';
-import type { InfoListSetProps, InfoListRow } from '../../src/components/InfoListSet';
+import { useInfoListGroup } from '../../src/components/InfoListGroup';
+import type { InfoListGroupProps, InfoListRow } from '../../src/components/InfoListGroup';
 
 const DEMO_ROWS: InfoListRow[] = [
   { id: '1', identifierLabel: 'Alice Johnson', avatarInitials: 'AJ', status: 'active', metaLabel: 'Sales' },
@@ -8,12 +8,12 @@ const DEMO_ROWS: InfoListRow[] = [
   { id: '3', identifierLabel: 'Carol White', avatarInitials: 'CW', status: 'active', metaLabel: 'Engineering' },
 ];
 
-function InfoListSetDemo({
+function InfoListGroupDemo({
   rows = DEMO_ROWS,
   identifierTitle = 'Name',
   statusTitle = 'Status',
-}: InfoListSetProps) {
-  const { selected, handleIdentifierClick, onClose } = useInfoListSet({ rows });
+}: InfoListGroupProps) {
+  const { selected, handleIdentifierClick, onClose } = useInfoListGroup({ rows });
 
   return (
     <div style={{ fontFamily: 'system-ui, sans-serif', width: 480, border: '1px solid #e0e0e0', borderRadius: 8, overflow: 'hidden' }}>
@@ -45,13 +45,13 @@ function InfoListSetDemo({
   );
 }
 
-const meta: Meta<typeof InfoListSetDemo> = {
-  title: 'Stilo/Component Sets/InfoListSet',
-  component: InfoListSetDemo,
+const meta: Meta<typeof InfoListGroupDemo> = {
+  title: 'Stilo/Component Sets/InfoListGroup',
+  component: InfoListGroupDemo,
   tags: ['autodocs'],
 };
 export default meta;
-type Story = StoryObj<typeof InfoListSetDemo>;
+type Story = StoryObj<typeof InfoListGroupDemo>;
 
 export const Default: Story = {
   args: { rows: DEMO_ROWS, identifierTitle: 'Name', statusTitle: 'Status' },

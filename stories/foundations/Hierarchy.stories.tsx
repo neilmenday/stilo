@@ -47,7 +47,7 @@ Two or more Components composed under a shared data or layout contract. Adds:
 - Cross-component state (e.g. which row is selected across a table)
 - A data schema components within the set depend on
 
-Examples: ActionsSet, FormBlockSettings, InfoListSet, TableSet.
+Examples: ActionsSet, FormBlockSettings, InfoListGroup, TableSet.
 
 ---
 
@@ -81,7 +81,7 @@ export const HierarchyDiagram = {
     <div style={{ fontFamily: 'system-ui, sans-serif', maxWidth: 640, lineHeight: 1.6 }}>
       {[
         { level: 'View', desc: 'Full-surface layout shells. Composes Component Sets and Components.', example: 'ListView, SettingsView, GridView' },
-        { level: 'Component Set', desc: 'Multiple Components under a shared data contract.', example: 'ActionsSet, TableSet, InfoListSet' },
+        { level: 'Component Set', desc: 'Multiple Components under a shared data contract.', example: 'ActionsSet, TableSet, InfoListGroup' },
         { level: 'Component', desc: 'Single unit with props interface and interaction state.', example: 'Button, TextField, ListItem' },
         { level: 'Primitive', desc: 'Unstyled structural element with accessibility contract.', example: 'Focusable container, drag handle slot' },
       ].map(({ level, desc, example }, i, arr) => (

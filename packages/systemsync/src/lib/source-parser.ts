@@ -67,7 +67,7 @@ const ANATOMY_OVERRIDES: Record<string, ComponentAnatomy> = {
   ControllableCalendarSet:{ layout: 'free', w: 700, h: 400, padding: 0, gap: 0, slots: [{type:'calendar'},{type:'area',label:'panel'}] },
   Table:                 { layout: 'v', w: 520, h: 196, padding: 0, gap: 0, slots: [{type:'table'}] },
   TableSet:              { layout: 'v', w: 520, h: 196, padding: 0, gap: 0, slots: [{type:'table'},{type:'area',label:'panel'}] },
-  InfoListSet:           { layout: 'v', w: 480, h: 188, padding: 0, gap: 0, slots: [{type:'table'}] },
+  InfoListGroup:         { layout: 'v', w: 480, h: 188, padding: 0, gap: 0, slots: [{type:'table'}] },
   ListView:              { layout: 'free', w: 760, h: 440, padding: 0, gap: 0, slots: [{type:'sidebar'},{type:'row',label:'list'}] },
   ListViewWithTabs:      { layout: 'free', w: 760, h: 440, padding: 0, gap: 0, slots: [{type:'sidebar'},{type:'tabs'},{type:'row',label:'list'}] },
   GridView:              { layout: 'free', w: 760, h: 440, padding: 0, gap: 0, slots: [{type:'sidebar'},{type:'card-grid'}] },

@@ -1,16 +1,16 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import type React from 'react';
-import type { InfoListRow, InfoListSetPanelConfig } from './types';
+import type { InfoListRow, InfoListGroupPanelConfig } from './types';
 
-interface UseInfoListSetOptions {
+interface UseInfoListGroupOptions {
   rows: InfoListRow[];
-  panelConfig?: InfoListSetPanelConfig;
+  panelConfig?: InfoListGroupPanelConfig;
   onPanelSave?: (row: InfoListRow) => void;
   onNavigate?: (row: InfoListRow) => void;
   onReorder?: (rows: InfoListRow[]) => void;
 }
 
-export function useInfoListSet({ rows, panelConfig, onPanelSave, onNavigate, onReorder }: UseInfoListSetOptions) {
+export function useInfoListGroup({ rows, panelConfig, onPanelSave, onNavigate, onReorder }: UseInfoListGroupOptions) {
   const [selected, setSelected] = useState<InfoListRow | null>(null);
   const [isDirty,  setIsDirty]  = useState(false);
   const [orderedRows,      setOrderedRows]      = useState<InfoListRow[]>(rows);

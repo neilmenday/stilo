@@ -14,7 +14,7 @@ When building a Storybook for your library, mirror Stilo's category names exactl
 |---|---|
 | `Foundations` | Layout shells, panels, structural primitives (Box, DrawerPanel, AppSidebar, etc.) |
 | `Components - Passive` | Self-contained interactive or display components (Button, TextField, Avatar, etc.) |
-| `Component Sets` | Multi-component compositions (FunctionsBar, ConditionBuilder, InfoListSet, etc.) |
+| `Component Sets` | Multi-component compositions (FunctionsBar, ConditionBuilder, InfoListGroup, etc.) |
 | `Views` | Full-page or full-panel views (ListView, GridView, CalendarView, etc.) |
 | `Icons` | Icon catalogue |
 | `DataViz` | Charts and data visualisation |

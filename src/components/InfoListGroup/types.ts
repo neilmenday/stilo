@@ -1,7 +1,7 @@
 import type React from 'react';
 import type { InfoListActionVariant, InfoListActionButton } from '../InfoListItem/types';
 
-export type InfoListSetPanelConfig = 'drawer' | 'overlay' | 'navigation';
+export type InfoListGroupPanelConfig = 'drawer' | 'overlay' | 'navigation';
 
 export interface InfoListRow {
   id: string | number;
@@ -32,8 +32,8 @@ export interface InfoListRow {
   [key: string]: unknown;
 }
 
-export interface InfoListSetProps {
-  panelConfig?:    InfoListSetPanelConfig;
+export interface InfoListGroupProps {
+  panelConfig?:    InfoListGroupPanelConfig;
   actionVariant?:  InfoListActionVariant;
   rows:      InfoListRow[];
   identifierTitle?:     string;
@@ -57,4 +57,8 @@ export interface InfoListSetProps {
   overlayWidth?:        number;
   onNavigate?: (row: InfoListRow) => void;
   onReorder?: (rows: InfoListRow[]) => void;
+  emptyStateVariant?:    'default' | 'filtered' | 'blank';
+  emptyStateEntityName?: string;
+  emptyStateActionVerb?: 'Create' | 'Add';
+  emptyStateIllustration?: React.ReactNode;
 }
