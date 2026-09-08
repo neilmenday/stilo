@@ -12,6 +12,8 @@ export interface ControllableTableSetProps {
   onNavigate?:         (row: unknown) => void;
   drawerWidth?:        number;
   overlayWidth?:       number;
+  /** Set false to hide the drawer panel's built-in Save/Cancel footer. Defaults to true. Drawer variant only. */
+  showPanelFooter?:    boolean;
   tabs?:          { id: string; label: string }[];
   activeTabId?:   string;
   onTabChange?:   (id: string) => void;

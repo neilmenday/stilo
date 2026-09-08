@@ -1,3 +1,5 @@
+import type { InlineResponseVariant } from '../InlineResponse/types';
+
 export type UnsavedChangesVariant = 'inline' | 'overlay';
 
 export interface UnsavedChangesGuardProps {
@@ -6,5 +8,6 @@ export interface UnsavedChangesGuardProps {
   onSave: () => void;
   onDiscard: () => void;
   onDismiss: () => void;
-  message?: string;
+  responseMessage?: string;
+  responseVariant?: InlineResponseVariant;
 }

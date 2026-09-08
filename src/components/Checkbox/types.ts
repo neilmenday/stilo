@@ -16,4 +16,7 @@ export interface CheckboxProps {
   disabled?: boolean;
   id?: string;
   variant?: 'default' | 'title';
+  // Lets the label wrap onto multiple lines instead of the default
+  // single-line/nowrap behaviour — box top-aligns against the first line.
+  wrapLabel?: boolean;
 }

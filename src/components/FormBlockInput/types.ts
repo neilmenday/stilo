@@ -1,4 +1,5 @@
 import type { ChangeEvent } from 'react';
+import type { InlineResponseVariant } from '../InlineResponse/types';
 
 export interface FormBlockInputProps {
   textFieldLabel?:       string;
@@ -7,6 +8,6 @@ export interface FormBlockInputProps {
   textareaLabel?:       string;
   textareaPlaceholder?: string;
   onTextareaChange?:    (e: ChangeEvent<HTMLTextAreaElement>) => void;
-  notification?:         string;
-  notificationVariant?:  string;
+  responseMessage?:      string;
+  responseVariant?:      InlineResponseVariant;
 }

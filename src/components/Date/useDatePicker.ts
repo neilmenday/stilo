@@ -11,6 +11,8 @@ export interface UseDatePickerOptions {
   onOpenChange?:       (open: boolean) => void;
   initialFrom?:        Date;
   initialTo?:          Date;
+  /** Initial value for the 'Time' variant, e.g. '09:00'. */
+  initialTime?:        string;
 }
 
 export function useDatePicker({
@@ -20,11 +22,12 @@ export function useDatePicker({
   onOpenChange,
   initialFrom,
   initialTo,
+  initialTime,
 }: UseDatePickerOptions) {
   const [isOpen,      setIsOpen]      = useState(false);
   const [rangeFrom,   setRangeFrom]   = useState<Date | null>(initialFrom ?? null);
   const [rangeTo,     setRangeTo]     = useState<Date | null>(initialTo   ?? null);
-  const [fromTime,    setFromTime]    = useState('00:00');
+  const [fromTime,    setFromTime]    = useState(initialTime ?? '00:00');
   const [toTime,      setToTime]      = useState('00:00');
   const [dropdownPos, setDropdownPos] = useState({ top: 0, left: 0 });
   const wrapperRef  = useRef<HTMLDivElement>(null);
@@ -32,7 +35,7 @@ export function useDatePicker({
 
   const closeCalendar = () => { setIsOpen(false); onOpenChange?.(false); };
 
-  const openCalendar = () => {
+  const computeDropdownPos = () => {
     if (wrapperRef.current) {
       const rect       = wrapperRef.current.getBoundingClientRect();
       const DATEBOX_W  = 780;
@@ -42,6 +45,10 @@ export function useDatePicker({
       const clampedLeft = Math.max(MARGIN, Math.min(rawLeft, window.innerWidth - DATEBOX_W - MARGIN));
       setDropdownPos({ top: rect.bottom + 2, left: clampedLeft });
     }
+  };
+
+  const openCalendar = () => {
+    computeDropdownPos();
     setIsOpen(true);
     onOpenChange?.(true);
   };
@@ -60,6 +67,13 @@ export function useDatePicker({
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [calendarContainer]);
 
+  useEffect(() => {
+    if (!isOpen) return;
+    window.addEventListener('resize', computeDropdownPos);
+    return () => window.removeEventListener('resize', computeDropdownPos);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOpen]);
+
   const handleChange = ({ from, to }: { from: Date | null; to: Date | null }) => {
     setRangeFrom(from);
     setRangeTo(to);
@@ -75,10 +89,17 @@ export function useDatePicker({
     ? (rangeFrom ? formatDate(rangeFrom) : null)
     : (rangeFrom ? formatDateRange(rangeFrom, rangeTo) : null);
 
+  // For the 'Time' variant there's no date to derive a value from — report the
+  // time itself, since callers otherwise have no way to read the selected time back out.
+  const handleFromTimeChange = (value: string) => {
+    setFromTime(value);
+    if (variant === 'Time') onChange?.(value);
+  };
+
   return {
     isOpen, rangeFrom, rangeTo, fromTime, toTime,
     dropdownPos, wrapperRef, dropdownRef,
     dateValue, toggleCalendar, closeCalendar, handleChange,
-    setFromTime, setToTime,
+    setFromTime: handleFromTimeChange, setToTime,
   };
 }

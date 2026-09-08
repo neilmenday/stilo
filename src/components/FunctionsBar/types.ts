@@ -1,4 +1,5 @@
 import type React from 'react';
+import type { InlineResponseVariant } from '../InlineResponse/types';
 
 export interface FunctionsBarProps {
   alignment?: 'left' | 'right';
@@ -12,5 +13,6 @@ export interface FunctionsBarProps {
   configureDisabled?: boolean;
   configureIcon?: React.ReactNode;
   leftSlot?: React.ReactNode;
-  notification?: string;
+  responseMessage?: string;
+  responseVariant?: InlineResponseVariant;
 }
