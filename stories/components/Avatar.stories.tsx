@@ -8,14 +8,10 @@ import { Icon } from '../../src/components/Icon';
 const SIZE = 36;
 const FONT_SIZE = 13;
 
-// Small self-contained placeholder photo (a real 8x8 solid-colour PNG, base64
-// data URI - not an external request) so the Image variant always renders
-// the same way in Storybook and in Chromatic snapshots, with no asset-
-// serving setup needed. A plain literal, not built with encodeURIComponent -
-// this is the story's own test data, not real Stilo behaviour worth
-// preserving as a runtime computation.
-const PLACEHOLDER_PHOTO =
-  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAIAAABLbSncAAAAEUlEQVR4nGM4sW0ZVsQwtCQAkGOJAcqb8H0AAAAASUVORK5CYII=';
+// Pravatar (i.pravatar.cc): free, no API key, genuinely random real photo
+// per request (no-store cache-control - each fetch is a different face).
+// Fine for demo purposes; this is the only real content this story needs.
+const PLACEHOLDER_PHOTO = 'https://i.pravatar.cc/150';
 
 function AvatarDemo({ variant = 'initials', initials = 'NM', src, alt }: AvatarProps) {
   return (
