@@ -8,13 +8,14 @@ import { Icon } from '../../src/components/Icon';
 const SIZE = 36;
 const FONT_SIZE = 13;
 
-// Small self-contained placeholder photo (a data URI, not an external
-// request) so the Image variant always renders the same way in Storybook
-// and in Chromatic snapshots, with no asset-serving setup needed.
+// Small self-contained placeholder photo (a real 8x8 solid-colour PNG, base64
+// data URI - not an external request) so the Image variant always renders
+// the same way in Storybook and in Chromatic snapshots, with no asset-
+// serving setup needed. A plain literal, not built with encodeURIComponent -
+// this is the story's own test data, not real Stilo behaviour worth
+// preserving as a runtime computation.
 const PLACEHOLDER_PHOTO =
-  'data:image/svg+xml;utf8,' + encodeURIComponent(
-    `<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36"><rect width="36" height="36" fill="#c8b6a6"/><circle cx="18" cy="14" r="7" fill="#8a6d5c"/><ellipse cx="18" cy="34" rx="13" ry="11" fill="#8a6d5c"/></svg>`
-  );
+  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAIAAABLbSncAAAAEUlEQVR4nGM4sW0ZVsQwtCQAkGOJAcqb8H0AAAAASUVORK5CYII=';
 
 function AvatarDemo({ variant = 'initials', initials = 'NM', src, alt }: AvatarProps) {
   return (
