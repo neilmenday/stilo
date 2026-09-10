@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import type { AvatarProps } from '../../src/components/Avatar';
+import type { AvatarProps, AvatarVariant } from '../../src/components/Avatar';
 import { Icon } from '../../src/components/Icon';
 
 // All three real variants share one size - nothing in Stilo varies Avatar's
@@ -7,6 +7,16 @@ import { Icon } from '../../src/components/Icon';
 // is the honest shape.
 const SIZE = 36;
 const FONT_SIZE = 13;
+
+// Background is real per-variant, not shared - a real design system can
+// legitimately want Icon's background to differ from Initials'/Image's
+// (e.g. a designer styling one variant in Figma via Sync from Figma).
+// Starts identical across all three; each key is independently real.
+const BACKGROUND_BY_TYPE: Record<AvatarVariant, string> = {
+  initials: '#e0e0e0',
+  icon: '#e0e0e0',
+  image: '#e0e0e0',
+};
 
 // Pravatar (i.pravatar.cc): free, no API key, genuinely random real photo
 // per request (no-store cache-control - each fetch is a different face).
@@ -20,7 +30,7 @@ function AvatarDemo({ variant = 'initials', initials = 'NM', src, alt }: AvatarP
         width: SIZE,
         height: SIZE,
         borderRadius: '50%',
-        background: '#e0e0e0',
+        background: BACKGROUND_BY_TYPE[variant ?? 'initials'],
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
