@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import type { AvatarProps, AvatarVariant } from '../../src/components/Avatar';
 import { Icon } from '../../src/components/Icon';
+import { colors } from '../../src/tokens';
 
 // All three real variants share one size - nothing in Stilo varies Avatar's
 // size by content type, so a single literal here (not a per-variant table)
@@ -13,7 +14,7 @@ const FONT_SIZE = 13;
 // (e.g. a designer styling one variant in Figma via Sync from Figma).
 // Starts identical across all three; each key is independently real.
 const BACKGROUND_BY_TYPE: Record<AvatarVariant, string> = {
-  initials: '#e0e0e0',
+  initials: colors.primeBlue100,
   icon: '#e0e0e0',
   image: '#e0e0e0',
 };
