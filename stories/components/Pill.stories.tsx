@@ -11,8 +11,12 @@ function PillDemo({
   const styles: Record<string, React.CSSProperties> = {
     Default: { background: '#f5f5f5', border: '1px solid #e0e0e0', color: '#111' },
     Indicator: { background: '#e0e0e0', border: '1px solid #ccc', color: '#111' },
-    'Indicator - Good': { background: 'rgba(0, 136, 0, 0.2)', border: '1px solid #080', color: '#080' },
-    'Indicator - Bad': { background: 'rgba(204, 0, 0, 0.2)', border: '1px solid #c00', color: '#c00' },
+    // Colours deliberately darker than a "pure" green/red - #080/#c00
+    // against their own 20% fill measured at 3.51:1 / 4.03:1, both real
+    // WCAG AA failures (needs 4.5:1) confirmed via the real luminance
+    // formula, not eyeballed. These measure 5.22:1 / 5.64:1.
+    'Indicator - Good': { background: 'rgba(0, 136, 0, 0.2)', border: '1px solid #006600', color: '#006600' },
+    'Indicator - Bad': { background: 'rgba(204, 0, 0, 0.2)', border: '1px solid #a00000', color: '#a00000' },
     Customisable: { background: customColor ? `${customColor}22` : '#f5f5f5', border: `1px solid ${customColor ?? '#ccc'}`, color: '#111' },
   };
   const s = styles[variant] ?? styles['Default'];
