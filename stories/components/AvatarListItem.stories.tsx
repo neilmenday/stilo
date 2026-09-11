@@ -1,6 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useAvatarListItem } from '../../src/components/AvatarListItem';
 import type { AvatarListItemProps } from '../../src/components/AvatarListItem';
+// Real nested composition, not hand-rolled approximations - Stilo has no
+// separate importable production Avatar/Pill component (structural
+// skeleton only), so the real place their real rendering exists is each
+// one's own demo function, exported from its own story file for exactly
+// this: genuine cross-component composition within Stilo itself.
+import { AvatarDemo } from './Avatar.stories';
+import { PillDemo } from './Pill.stories';
 
 function AvatarListItemDemo({
   name = 'Neil Menday',
@@ -24,13 +31,7 @@ function AvatarListItemDemo({
       fontFamily: 'system-ui, sans-serif', padding: '8px 12px',
       border: '1px solid #e0e0e0', borderRadius: 4, width: 280,
     }}>
-      <div style={{
-        width: 36, height: 36, borderRadius: '50%',
-        background: '#e0e0e0', display: 'flex', alignItems: 'center',
-        justifyContent: 'center', fontSize: 13, color: '#111', flexShrink: 0,
-      }}>
-        {avatarInitials}
-      </div>
+      <AvatarDemo variant="initials" initials={avatarInitials} />
       <div style={{ flex: 1, minWidth: 0 }}>
         <div
           {...nameHoverProps}
@@ -48,9 +49,10 @@ function AvatarListItemDemo({
         </div>
       </div>
       {showStatus && (
-        <div style={{ fontSize: 12, color: status === 'active' ? '#111' : '#555' }}>
-          {status === 'active' ? onLabel : offLabel}
-        </div>
+        <PillDemo
+          variant={status === 'active' ? 'Indicator - Good' : 'Default'}
+          label={status === 'active' ? onLabel : offLabel}
+        />
       )}
     </div>
   );

@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import type { PillProps } from '../../src/components/Pill';
 
-function PillDemo({
+// Exported for the same reason as Avatar's AvatarDemo - see that file.
+export function PillDemo({
   label = 'Label',
   variant = 'Default',
   dismissible = false,

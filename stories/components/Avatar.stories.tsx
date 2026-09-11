@@ -23,7 +23,13 @@ const BACKGROUND_BY_TYPE: Record<AvatarVariant, string> = {
 // Fine for demo purposes; this is the only real content this story needs.
 const PLACEHOLDER_PHOTO = 'https://i.pravatar.cc/150';
 
-function AvatarDemo({ variant = 'initials', initials = 'NM', src, alt }: AvatarProps) {
+// Exported (not just used locally in this file) so a real composing
+// component - AvatarListItem - can genuinely nest the real Avatar
+// rendering, rather than hand-rolling its own approximation. Stilo has no
+// separate importable production Avatar component (structural skeleton
+// only, see src/components/Avatar/types.ts) - this demo function IS the
+// one real place Avatar's real rendering exists.
+export function AvatarDemo({ variant = 'initials', initials = 'NM', src, alt }: AvatarProps) {
   return (
     <div
       style={{
