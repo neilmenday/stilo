@@ -11,8 +11,8 @@ function PillDemo({
   const styles: Record<string, React.CSSProperties> = {
     Default: { background: '#f5f5f5', border: '1px solid #e0e0e0', color: '#111' },
     Indicator: { background: '#e0e0e0', border: '1px solid #ccc', color: '#111' },
-    'Indicator - Good': { background: '#e0e0e0', border: '1px solid #ccc', color: '#111' },
-    'Indicator - Bad': { background: '#f5f5f5', border: '1px solid #ccc', color: '#c00' },
+    'Indicator - Good': { background: 'rgba(0, 136, 0, 0.2)', border: '1px solid #080', color: '#080' },
+    'Indicator - Bad': { background: 'rgba(204, 0, 0, 0.2)', border: '1px solid #c00', color: '#c00' },
     Customisable: { background: customColor ? `${customColor}22` : '#f5f5f5', border: `1px solid ${customColor ?? '#ccc'}`, color: '#111' },
   };
   const s = styles[variant] ?? styles['Default'];
