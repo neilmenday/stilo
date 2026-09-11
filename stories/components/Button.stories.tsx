@@ -1,7 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import type { ButtonProps } from '../../src/components/Button';
 
-function ButtonDemo({
+// Exported so other stories (e.g. AvatarListItem's text-button identifier)
+// can genuinely nest the real Button, not hand-roll their own approximation.
+export function ButtonDemo({
   label,
   variant = 'fill',
   intent = 'default',
@@ -14,7 +16,9 @@ function ButtonDemo({
   const isDestructive = intent === 'destructive';
 
   const bg = isFill ? (isDestructive ? '#c00' : '#111') : 'transparent';
-  const color = isFill ? '#fff' : (isDestructive ? '#c00' : '#111');
+  // Text variant is a real link, not a secondary button - standard web
+  // convention is blue, not the neutral/dark text an outline button uses.
+  const color = isFill ? '#fff' : isDestructive ? '#c00' : variant === 'text' ? '#0066cc' : '#111';
   const border = isOutline ? `1px solid ${isDestructive ? '#c00' : '#e0e0e0'}` : isFill ? 'none' : 'none';
 
   return (

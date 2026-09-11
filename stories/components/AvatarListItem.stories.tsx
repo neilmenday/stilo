@@ -8,6 +8,7 @@ import type { AvatarListItemProps } from '../../src/components/AvatarListItem';
 // this: genuine cross-component composition within Stilo itself.
 import { AvatarDemo } from './Avatar.stories';
 import { PillDemo } from './Pill.stories';
+import { ButtonDemo } from './Button.stories';
 
 function AvatarListItemDemo({
   name = 'Neil Menday',
@@ -33,20 +34,12 @@ function AvatarListItemDemo({
     }}>
       <AvatarDemo variant="initials" initials={avatarInitials} />
       <div style={{ flex: 1, minWidth: 0 }}>
-        <div
-          {...nameHoverProps}
-          onClick={handleNameClick}
-          style={{
-            fontSize: 13, fontWeight: 600,
-            color: iconVisible ? '#0066cc' : '#111',
-            cursor: 'pointer',
-          }}
-        >
-          {name}
+        <span {...nameHoverProps} style={{ display: 'inline-flex', alignItems: 'center' }}>
+          <ButtonDemo variant="text" label={name} onClick={handleNameClick} />
           {showIdentifierIcon && iconVisible && (
             <span style={{ marginLeft: 4, fontSize: 11 }}>→</span>
           )}
-        </div>
+        </span>
       </div>
       {showStatus && (
         <PillDemo
