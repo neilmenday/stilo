@@ -33,13 +33,11 @@ function AvatarListItemDemo({
       border: '1px solid #e0e0e0', borderRadius: 4, width: 280,
     }}>
       <AvatarDemo variant="initials" initials={avatarInitials} />
-      <div style={{ flex: 1, minWidth: 0 }}>
-        <span {...nameHoverProps} style={{ display: 'inline-flex', alignItems: 'center' }}>
-          <ButtonDemo variant="text" label={name} onClick={handleNameClick} />
-          {showIdentifierIcon && iconVisible && (
-            <span style={{ marginLeft: 4, fontSize: 11 }}>→</span>
-          )}
-        </span>
+      <div style={{ flex: 1, minWidth: 0, display: 'flex', alignItems: 'center' }} {...nameHoverProps}>
+        <ButtonDemo variant="text" label={name} onClick={handleNameClick} />
+        {showIdentifierIcon && iconVisible && (
+          <span style={{ marginLeft: 4, fontSize: 11 }}>→</span>
+        )}
       </div>
       {showStatus && (
         <PillDemo
