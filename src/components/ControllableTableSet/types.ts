@@ -23,6 +23,7 @@ export interface ControllableTableSetProps {
   searchLabel?: string;
   bulkLabel?: string;
   bulkItems?: { value: string; label: string }[];
+  onBulkActionSelect?: (action: { value: string; label: string }, selectedRows: unknown[]) => void;
   buttonLabel?: string;
   onButtonClick?: () => void;
   showFilter?:  boolean;

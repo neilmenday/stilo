@@ -3,7 +3,7 @@ export interface TableProps {
   rows: unknown[];
   showTotals?: boolean;
   totalsData?: Record<string, unknown>;
-  onSelectionChange?: (selectedCount: number) => void;
+  onSelectionChange?: (selectedCount: number, selectedRows: unknown[]) => void;
   showCheckbox?: boolean;
   draggable?: boolean;
 }

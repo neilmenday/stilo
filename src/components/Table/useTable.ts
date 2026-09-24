@@ -3,7 +3,7 @@ import { useState, useMemo } from 'react';
 interface UseTableOptions {
   columns: { key: string; cellType?: string; headerType?: string }[];
   rows: Record<string, unknown>[];
-  onSelectionChange?: (selectedCount: number) => void;
+  onSelectionChange?: (selectedCount: number, selectedRows: unknown[]) => void;
 }
 
 export function useTable({ columns, rows, onSelectionChange }: UseTableOptions) {
@@ -22,28 +22,6 @@ export function useTable({ columns, rows, onSelectionChange }: UseTableOptions) 
     return orderCol.headerType === 'Order Down' ? 'desc' : 'asc';
   });
 
-  const toggleRow = (idx: number, val: boolean) => {
-    setSelectedRows(prev => {
-      const next = new Set(prev);
-      val ? next.add(idx) : next.delete(idx);
-      onSelectionChange?.(next.size);
-      return next;
-    });
-  };
-
-  const allSelected = rows.length > 0 && selectedRows.size === rows.length;
-  const toggleAll = (v: boolean) => {
-    const next = v ? new Set(rows.map((_, i) => i)) : new Set<number>();
-    setSelectedRows(next);
-    onSelectionChange?.(next.size);
-  };
-
-  const handleSort = (colKey: string) => {
-    if (sortKey !== colKey) { setSortKey(colKey); setSortDir('asc'); }
-    else if (sortDir === 'asc') { setSortDir('desc'); }
-    else { setSortKey(null); setSortDir(null); }
-  };
-
   const sortedRows = sortKey && sortDir
     ? [...rows].sort((a, b) => {
         const av = a[sortKey] ?? '';
@@ -52,6 +30,29 @@ export function useTable({ columns, rows, onSelectionChange }: UseTableOptions) 
         return sortDir === 'asc' ? cmp : -cmp;
       })
     : rows;
+
+  const selectedRowsData = (indices: Set<number>) =>
+    Array.from(indices).map(i => sortedRows[i]).filter((r): r is Record<string, unknown> => r !== undefined);
+
+  const toggleRow = (idx: number, val: boolean) => {
+    const next = new Set(selectedRows);
+    val ? next.add(idx) : next.delete(idx);
+    setSelectedRows(next);
+    onSelectionChange?.(next.size, selectedRowsData(next));
+  };
+
+  const allSelected = rows.length > 0 && selectedRows.size === rows.length;
+  const toggleAll = (v: boolean) => {
+    const next = v ? new Set(rows.map((_, i) => i)) : new Set<number>();
+    setSelectedRows(next);
+    onSelectionChange?.(next.size, selectedRowsData(next));
+  };
+
+  const handleSort = (colKey: string) => {
+    if (sortKey !== colKey) { setSortKey(colKey); setSortDir('asc'); }
+    else if (sortDir === 'asc') { setSortDir('desc'); }
+    else { setSortKey(null); setSortDir(null); }
+  };
 
   return { selectedRows, sortKey, sortDir, allSelected, sortedRows, toggleRow, toggleAll, handleSort };
 }

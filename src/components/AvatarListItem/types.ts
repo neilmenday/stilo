@@ -18,4 +18,5 @@ export interface AvatarListItemProps {
   showIdentifierIcon?: boolean;
   identifierIconName?: string;
   identifierActive?: boolean;
+  metaPills?: { label: string; variant?: 'Default' | 'Indicator' | 'Indicator - Good' | 'Indicator - Bad' }[];
 }
