@@ -48,14 +48,14 @@ function ButtonGroupDemo({
 }
 
 const meta: Meta<typeof ButtonGroupDemo> = {
-  title: 'Stilo/Components - Passive/ButtonGroup',
+  title: 'Stilo/Passives/ButtonGroup',
   component: ButtonGroupDemo,
   tags: ['autodocs'],
 };
 export default meta;
 type Story = StoryObj<typeof ButtonGroupDemo>;
 
-export const Default: Story = {
+export const Playground: Story = {
   args: {
     buttons: ['Option A', 'Option B', 'Option C'],
     label: 'View',

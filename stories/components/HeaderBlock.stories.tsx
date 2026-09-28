@@ -49,4 +49,4 @@ const meta: Meta<typeof HeaderBlockDemo> = {
 export default meta;
 type Story = StoryObj<typeof HeaderBlockDemo>;
 
-export const Default: Story = { args: { title: 'Accounts', actionLabel: 'Add account', showChooser: false } };
+export const Playground: Story = { args: { title: 'Accounts', actionLabel: 'Add account', showChooser: false } };

@@ -59,11 +59,11 @@ function CalendarDemo({ initialYear, initialMonth, onDayClick }: CalendarProps) 
 }
 
 const meta: Meta<typeof CalendarDemo> = {
-  title: 'Stilo/Components - Passive/Calendar',
+  title: 'Stilo/Passives/Calendar',
   component: CalendarDemo,
   tags: ['autodocs'],
 };
 export default meta;
 type Story = StoryObj<typeof CalendarDemo>;
 
-export const Default: Story = { args: {} };
+export const Playground: Story = { args: {} };

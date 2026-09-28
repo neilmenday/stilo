@@ -44,12 +44,12 @@ function FunctionsBarDemo({
 }
 
 const meta: Meta<typeof FunctionsBarDemo> = {
-  title: 'Stilo/Component Sets/FunctionsBar',
+  title: 'Stilo/Sets/FunctionsBar',
   component: FunctionsBarDemo,
   tags: ['autodocs'],
 };
 export default meta;
 type Story = StoryObj<typeof FunctionsBarDemo>;
 
-export const Default: Story = { args: { alignment: 'right', cancelLabel: 'Cancel', saveLabel: 'Save', saveDisabled: false } };
+export const Playground: Story = { args: { alignment: 'right', cancelLabel: 'Cancel', saveLabel: 'Save', saveDisabled: false } };
 export const WithNotification: Story = { args: { alignment: 'right', cancelLabel: 'Cancel', saveLabel: 'Save', notification: 'You have unsaved changes' } };

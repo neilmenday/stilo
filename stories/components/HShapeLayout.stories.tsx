@@ -33,4 +33,4 @@ const meta: Meta<typeof HShapeLayoutDemo> = {
 export default meta;
 type Story = StoryObj<typeof HShapeLayoutDemo>;
 
-export const Default: Story = { args: { col1Width: 200, col3Width: 240 } };
+export const Playground: Story = { args: { col1Width: 200, col3Width: 240 } };

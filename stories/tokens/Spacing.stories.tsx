@@ -22,4 +22,4 @@ const meta: Meta = {
 };
 export default meta;
 type Story = StoryObj;
-export const Default: Story = {};
+export const Playground: Story = {};

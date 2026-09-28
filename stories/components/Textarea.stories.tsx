@@ -64,13 +64,13 @@ function TextareaDemo({
 }
 
 const meta: Meta<typeof TextareaDemo> = {
-  title: 'Stilo/Components - Passive/Textarea',
+  title: 'Stilo/Passives/Textarea',
   component: TextareaDemo,
   tags: ['autodocs'],
 };
 export default meta;
 type Story = StoryObj<typeof TextareaDemo>;
 
-export const Default: Story = { args: { label: 'Notes', placeholder: 'Enter notes…', rows: 4, showLabel: true } };
+export const Playground: Story = { args: { label: 'Notes', placeholder: 'Enter notes…', rows: 4, showLabel: true } };
 export const WithMaxLength: Story = { args: { label: 'Bio', placeholder: 'Write a short bio…', maxLength: 200, rows: 4 } };
 export const WithError: Story = { args: { label: 'Description', error: true, errorMessage: 'This field is required.' } };

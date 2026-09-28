@@ -63,14 +63,14 @@ function ComboboxDemo({
 }
 
 const meta: Meta<typeof ComboboxDemo> = {
-  title: 'Stilo/Components - Passive/Combobox',
+  title: 'Stilo/Passives/Combobox',
   component: ComboboxDemo,
   tags: ['autodocs'],
 };
 export default meta;
 type Story = StoryObj<typeof ComboboxDemo>;
 
-export const Default: Story = {
+export const Playground: Story = {
   args: {
     label: 'Select fruit',
     showLabel: true,

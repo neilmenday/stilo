@@ -45,4 +45,4 @@ const meta: Meta<typeof BoxDemo> = {
 export default meta;
 type Story = StoryObj<typeof BoxDemo>;
 
-export const Default: Story = { args: { title: 'Box title', action: 'Edit', pill: '3' } };
+export const Playground: Story = { args: { title: 'Box title', action: 'Edit', pill: '3' } };

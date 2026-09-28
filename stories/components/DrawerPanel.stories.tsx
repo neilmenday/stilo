@@ -54,4 +54,4 @@ const meta: Meta<typeof DrawerPanelDemo> = {
 export default meta;
 type Story = StoryObj<typeof DrawerPanelDemo>;
 
-export const Default: Story = { args: { title: 'Edit record', width: 360 } };
+export const Playground: Story = { args: { title: 'Edit record', width: 360 } };

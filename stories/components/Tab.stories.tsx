@@ -26,14 +26,14 @@ function TabBarDemo({ tabs, activeId, onChange }: TabBarProps) {
 }
 
 const meta: Meta<typeof TabBarDemo> = {
-  title: 'Stilo/Components - Passive/Tab',
+  title: 'Stilo/Passives/Tab',
   component: TabBarDemo,
   tags: ['autodocs'],
 };
 export default meta;
 type Story = StoryObj<typeof TabBarDemo>;
 
-export const Default: Story = {
+export const Playground: Story = {
   args: {
     tabs: [{ id: 'all', label: 'All' }, { id: 'active', label: 'Active' }, { id: 'archived', label: 'Archived' }],
     activeId: 'all',

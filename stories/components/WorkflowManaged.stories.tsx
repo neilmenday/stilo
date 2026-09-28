@@ -36,4 +36,4 @@ const meta: Meta<typeof WorkflowManagedDemo> = {
 export default meta;
 type Story = StoryObj<typeof WorkflowManagedDemo>;
 
-export const Default: Story = {};
+export const Playground: Story = {};

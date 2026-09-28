@@ -49,7 +49,7 @@ function ToastDemo({
 }
 
 const meta: Meta<typeof ToastDemo> = {
-  title: 'Stilo/Components - Passive/Toast',
+  title: 'Stilo/Passives/Toast',
   component: ToastDemo,
   tags: ['autodocs'],
 };

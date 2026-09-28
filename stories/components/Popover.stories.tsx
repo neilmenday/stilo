@@ -48,14 +48,14 @@ function PopoverDemo({
 }
 
 const meta: Meta<typeof PopoverDemo> = {
-  title: 'Stilo/Components - Passive/Popover',
+  title: 'Stilo/Passives/Popover',
   component: PopoverDemo,
   tags: ['autodocs'],
 };
 export default meta;
 type Story = StoryObj<typeof PopoverDemo>;
 
-export const Default: Story = {
+export const Playground: Story = {
   args: {
     title: 'Helpful tip',
     body: 'Click the field to enter a value. You can also paste from your clipboard.',

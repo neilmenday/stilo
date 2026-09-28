@@ -57,12 +57,12 @@ function ListItemDemo({
 }
 
 const meta: Meta<typeof ListItemDemo> = {
-  title: 'Stilo/Components - Passive/ListItem',
+  title: 'Stilo/Passives/ListItem',
   component: ListItemDemo,
   tags: ['autodocs'],
 };
 export default meta;
 type Story = StoryObj<typeof ListItemDemo>;
 
-export const Default: Story = { args: { variant: 'default', label: 'Sales region' } };
+export const Playground: Story = { args: { variant: 'default', label: 'Sales region' } };
 export const Identifier: Story = { args: { variant: 'identifier', name: 'Alice Johnson', status: 'active', showStatus: true, onLabel: 'Active', offLabel: 'Inactive' } };

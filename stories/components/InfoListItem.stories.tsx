@@ -54,14 +54,14 @@ function InfoListItemDemo({
 }
 
 const meta: Meta<typeof InfoListItemDemo> = {
-  title: 'Stilo/Component Sets/InfoListItem',
+  title: 'Stilo/Sets/InfoListItem',
   component: InfoListItemDemo,
   tags: ['autodocs'],
 };
 export default meta;
 type Story = StoryObj<typeof InfoListItemDemo>;
 
-export const Default: Story = {
+export const Playground: Story = {
   args: {
     variant: 'Row',
     identifierLabel: 'Alice Johnson',

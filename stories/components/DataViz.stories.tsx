@@ -34,14 +34,14 @@ function DataVizDemo({
 }
 
 const meta: Meta<typeof DataVizDemo> = {
-  title: 'Stilo/DataViz/DataViz',
+  title: 'Stilo/Foundations/DataViz',
   component: DataVizDemo,
   tags: ['autodocs'],
 };
 export default meta;
 type Story = StoryObj<typeof DataVizDemo>;
 
-export const Default: Story = {
+export const Playground: Story = {
   args: {
     variant: 'bar',
     title: 'Monthly Sales',

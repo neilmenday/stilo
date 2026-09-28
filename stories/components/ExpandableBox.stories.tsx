@@ -46,12 +46,12 @@ function ExpandableBoxDemo({
 }
 
 const meta: Meta<typeof ExpandableBoxDemo> = {
-  title: 'Stilo/Components - Passive/ExpandableBox',
+  title: 'Stilo/Passives/ExpandableBox',
   component: ExpandableBoxDemo,
   tags: ['autodocs'],
 };
 export default meta;
 type Story = StoryObj<typeof ExpandableBoxDemo>;
 
-export const Default: Story = { args: { title: 'Advanced settings', variant: 'default', defaultOpen: false, showPill: true, pillLabel: '3' } };
+export const Playground: Story = { args: { title: 'Advanced settings', variant: 'default', defaultOpen: false, showPill: true, pillLabel: '3' } };
 export const OpenByDefault: Story = { args: { title: 'Open section', variant: 'default', defaultOpen: true } };

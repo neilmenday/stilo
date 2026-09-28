@@ -48,14 +48,14 @@ function StepIndicatorDemo({
 }
 
 const meta: Meta<typeof StepIndicatorDemo> = {
-  title: 'Stilo/Components - Passive/StepIndicator',
+  title: 'Stilo/Passives/StepIndicator',
   component: StepIndicatorDemo,
   tags: ['autodocs'],
 };
 export default meta;
 type Story = StoryObj<typeof StepIndicatorDemo>;
 
-export const Default: Story = {
+export const Playground: Story = {
   args: {
     steps: [{ label: 'Details' }, { label: 'Configuration' }, { label: 'Review' }, { label: 'Done' }],
     activeStep: 2,

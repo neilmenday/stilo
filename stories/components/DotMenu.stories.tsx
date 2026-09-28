@@ -52,14 +52,14 @@ function DotMenuDemo({
 }
 
 const meta: Meta<typeof DotMenuDemo> = {
-  title: 'Stilo/Components - Passive/DotMenu',
+  title: 'Stilo/Passives/DotMenu',
   component: DotMenuDemo,
   tags: ['autodocs'],
 };
 export default meta;
 type Story = StoryObj<typeof DotMenuDemo>;
 
-export const Default: Story = {
+export const Playground: Story = {
   args: {
     items: ['Edit', 'Duplicate', 'Delete'],
     align: 'left',

@@ -61,7 +61,7 @@ const meta: Meta<typeof AppSidebarDemo> = {
 export default meta;
 type Story = StoryObj<typeof AppSidebarDemo>;
 
-export const Default: Story = {
+export const Playground: Story = {
   args: {
     navItems: ['Dashboard', 'Records', 'Reports', 'Settings'],
     activeItem: 'Records',

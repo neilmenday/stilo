@@ -65,14 +65,14 @@ function ControllableGridSetDemo({
 }
 
 const meta: Meta<typeof ControllableGridSetDemo> = {
-  title: 'Stilo/Component Sets/ControllableGridSet',
+  title: 'Stilo/Sets/ControllableGridSet',
   component: ControllableGridSetDemo,
   tags: ['autodocs'],
 };
 export default meta;
 type Story = StoryObj<typeof ControllableGridSetDemo>;
 
-export const Default: Story = {
+export const Playground: Story = {
   args: {
     items: SAMPLE_ITEMS,
     searchLabel: 'Search',

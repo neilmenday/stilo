@@ -64,7 +64,7 @@ const meta: Meta<typeof ListViewWithTabsDemo> = {
 export default meta;
 type Story = StoryObj<typeof ListViewWithTabsDemo>;
 
-export const Default: Story = {
+export const Playground: Story = {
   args: {
     title: 'Team members',
     tabs: [{ id: 'all', label: 'All' }, { id: 'active', label: 'Active' }, { id: 'inactive', label: 'Inactive' }],

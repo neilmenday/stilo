@@ -55,11 +55,11 @@ function MappingSetDemo({
 }
 
 const meta: Meta<typeof MappingSetDemo> = {
-  title: 'Stilo/Component Sets/MappingSet',
+  title: 'Stilo/Sets/MappingSet',
   component: MappingSetDemo,
   tags: ['autodocs'],
 };
 export default meta;
 type Story = StoryObj<typeof MappingSetDemo>;
 
-export const Default: Story = { args: { columns: DEMO_COLUMNS, addLabel: 'Add mapping' } };
+export const Playground: Story = { args: { columns: DEMO_COLUMNS, addLabel: 'Add mapping' } };

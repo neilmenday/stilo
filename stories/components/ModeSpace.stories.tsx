@@ -44,5 +44,5 @@ const meta: Meta<typeof ModeSpaceDemo> = {
 export default meta;
 type Story = StoryObj<typeof ModeSpaceDemo>;
 
-export const Default: Story = { args: { saveLabel: 'Save changes', cancelLabel: 'Discard', saveDisabled: false } };
+export const Playground: Story = { args: { saveLabel: 'Save changes', cancelLabel: 'Discard', saveDisabled: false } };
 export const WithNotification: Story = { args: { saveLabel: 'Save', cancelLabel: 'Cancel', notification: 'You have unsaved changes' } };

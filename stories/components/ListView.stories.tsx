@@ -31,4 +31,4 @@ const meta: Meta<typeof ListViewDemo> = {
 export default meta;
 type Story = StoryObj<typeof ListViewDemo>;
 
-export const Default: Story = { args: { title: 'Team members' } };
+export const Playground: Story = { args: { title: 'Team members' } };

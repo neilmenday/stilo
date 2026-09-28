@@ -66,14 +66,14 @@ function ControllableCalendarSetDemo({
 }
 
 const meta: Meta<typeof ControllableCalendarSetDemo> = {
-  title: 'Stilo/Component Sets/ControllableCalendarSet',
+  title: 'Stilo/Sets/ControllableCalendarSet',
   component: ControllableCalendarSetDemo,
   tags: ['autodocs'],
 };
 export default meta;
 type Story = StoryObj<typeof ControllableCalendarSetDemo>;
 
-export const Default: Story = {
+export const Playground: Story = {
   args: {
     events: SAMPLE_EVENTS,
     searchLabel: 'Search events',

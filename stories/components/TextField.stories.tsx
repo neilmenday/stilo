@@ -55,14 +55,14 @@ function TextFieldDemo({
 }
 
 const meta: Meta<typeof TextFieldDemo> = {
-  title: 'Stilo/Components - Passive/TextField',
+  title: 'Stilo/Passives/TextField',
   component: TextFieldDemo,
   tags: ['autodocs'],
 };
 export default meta;
 type Story = StoryObj<typeof TextFieldDemo>;
 
-export const Default: Story = { args: { label: 'Email', placeholder: 'Enter email', showLabel: true } };
+export const Playground: Story = { args: { label: 'Email', placeholder: 'Enter email', showLabel: true } };
 export const Required: Story = { args: { label: 'Name', placeholder: 'Enter name', required: true, showLabel: true } };
 export const WithError: Story = { args: { label: 'Email', placeholder: 'Enter email', errorText: 'Invalid email address', showLabel: true } };
 export const Disabled: Story = { args: { label: 'Read only', placeholder: 'Not editable', disabled: true, showLabel: true } };

@@ -73,14 +73,14 @@ function CodeTextareaDemo({
 }
 
 const meta: Meta<typeof CodeTextareaDemo> = {
-  title: 'Stilo/Components - Passive/CodeTextarea',
+  title: 'Stilo/Passives/CodeTextarea',
   component: CodeTextareaDemo,
   tags: ['autodocs'],
 };
 export default meta;
 type Story = StoryObj<typeof CodeTextareaDemo>;
 
-export const Default: Story = {
+export const Playground: Story = {
   args: {
     value: 'function hello() {\n  return "world";\n}\n\nconsole.log(hello());',
     rows: 8,

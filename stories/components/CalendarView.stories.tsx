@@ -49,4 +49,4 @@ const meta: Meta<typeof CalendarViewDemo> = {
 export default meta;
 type Story = StoryObj<typeof CalendarViewDemo>;
 
-export const Default: Story = { args: { title: 'Calendar View', buttonLabel: 'Add event' } };
+export const Playground: Story = { args: { title: 'Calendar View', buttonLabel: 'Add event' } };

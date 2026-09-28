@@ -51,11 +51,11 @@ function DrawerDemo({
 }
 
 const meta: Meta<typeof DrawerDemo> = {
-  title: 'Stilo/Components - Passive/Drawer',
+  title: 'Stilo/Passives/Drawer',
   component: DrawerDemo,
   tags: ['autodocs'],
 };
 export default meta;
 type Story = StoryObj<typeof DrawerDemo>;
 
-export const Default: Story = { args: { title: 'Edit record', width: 360 } };
+export const Playground: Story = { args: { title: 'Edit record', width: 360 } };

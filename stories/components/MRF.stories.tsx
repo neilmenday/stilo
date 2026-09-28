@@ -80,14 +80,14 @@ function MRFDemo({
 }
 
 const meta: Meta<typeof MRFDemo> = {
-  title: 'Stilo/Component Sets/MRF',
+  title: 'Stilo/Sets/MRF',
   component: MRFDemo,
   tags: ['autodocs'],
 };
 export default meta;
 type Story = StoryObj<typeof MRFDemo>;
 
-export const Default: Story = {
+export const Playground: Story = {
   args: {
     variant: 'default',
     fieldOptions: FIELD_OPTIONS,

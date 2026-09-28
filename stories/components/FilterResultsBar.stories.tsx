@@ -32,14 +32,14 @@ function FilterResultsBarDemo({ pills, onClearAll }: FilterResultsBarProps) {
 }
 
 const meta: Meta<typeof FilterResultsBarDemo> = {
-  title: 'Stilo/Components - Passive/FilterResultsBar',
+  title: 'Stilo/Passives/FilterResultsBar',
   component: FilterResultsBarDemo,
   tags: ['autodocs'],
 };
 export default meta;
 type Story = StoryObj<typeof FilterResultsBarDemo>;
 
-export const Default: Story = {
+export const Playground: Story = {
   args: {
     pills: [
       { key: 'region', label: 'North', onDismiss: () => {} },

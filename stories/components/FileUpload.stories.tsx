@@ -53,14 +53,14 @@ function FileUploadDemo({
 }
 
 const meta: Meta<typeof FileUploadDemo> = {
-  title: 'Stilo/Components - Passive/FileUpload',
+  title: 'Stilo/Passives/FileUpload',
   component: FileUploadDemo,
   tags: ['autodocs'],
 };
 export default meta;
 type Story = StoryObj<typeof FileUploadDemo>;
 
-export const Default: Story = {
+export const Playground: Story = {
   args: {
     variant: 'Default',
     accept: '*',

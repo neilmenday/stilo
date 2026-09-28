@@ -44,11 +44,11 @@ function PillColorPickerDemo({ label = 'Colour', value: valueProp, onChange }: P
 }
 
 const meta: Meta<typeof PillColorPickerDemo> = {
-  title: 'Stilo/Component Sets/PillColorPicker',
+  title: 'Stilo/Sets/PillColorPicker',
   component: PillColorPickerDemo,
   tags: ['autodocs'],
 };
 export default meta;
 type Story = StoryObj<typeof PillColorPickerDemo>;
 
-export const Default: Story = { args: { label: 'Choose pill colour' } };
+export const Playground: Story = { args: { label: 'Choose pill colour' } };

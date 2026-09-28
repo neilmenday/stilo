@@ -43,14 +43,14 @@ function ActionsSetDemo({
 }
 
 const meta: Meta<typeof ActionsSetDemo> = {
-  title: 'Stilo/Component Sets/ActionsSet',
+  title: 'Stilo/Sets/ActionsSet',
   component: ActionsSetDemo,
   tags: ['autodocs'],
 };
 export default meta;
 type Story = StoryObj<typeof ActionsSetDemo>;
 
-export const Default: Story = {
+export const Playground: Story = {
   args: {
     showFilter: true,
     filterLabel: 'Filter',

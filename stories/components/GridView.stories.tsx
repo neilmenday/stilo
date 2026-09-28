@@ -37,4 +37,4 @@ const meta: Meta<typeof GridViewDemo> = {
 export default meta;
 type Story = StoryObj<typeof GridViewDemo>;
 
-export const Default: Story = { args: { title: 'Grid View' } };
+export const Playground: Story = { args: { title: 'Grid View' } };

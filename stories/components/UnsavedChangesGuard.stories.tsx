@@ -61,7 +61,7 @@ const meta: Meta<typeof UnsavedChangesGuardDemo> = {
 export default meta;
 type Story = StoryObj<typeof UnsavedChangesGuardDemo>;
 
-export const Default: Story = {
+export const Playground: Story = {
   args: {
     variant: 'inline',
     message: 'You have unsaved changes. Save or discard before leaving.',

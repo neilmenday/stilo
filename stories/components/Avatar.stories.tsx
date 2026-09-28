@@ -58,7 +58,7 @@ export function AvatarDemo({ variant = 'initials', initials = 'NM', src, alt }: 
 }
 
 const meta: Meta<typeof AvatarDemo> = {
-  title: 'Stilo/Components - Passive/Avatar',
+  title: 'Stilo/Passives/Avatar',
   component: AvatarDemo,
   tags: ['autodocs'],
 };

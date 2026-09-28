@@ -69,14 +69,14 @@ function ControllableTableSetDemo({
 }
 
 const meta: Meta<typeof ControllableTableSetDemo> = {
-  title: 'Stilo/Component Sets/ControllableTableSet',
+  title: 'Stilo/Sets/ControllableTableSet',
   component: ControllableTableSetDemo,
   tags: ['autodocs'],
 };
 export default meta;
 type Story = StoryObj<typeof ControllableTableSetDemo>;
 
-export const Default: Story = {
+export const Playground: Story = {
   args: {
     columns: SAMPLE_COLS,
     rows: SAMPLE_ROWS,

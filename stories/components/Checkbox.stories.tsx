@@ -46,13 +46,13 @@ function CheckboxDemo({
 }
 
 const meta: Meta<typeof CheckboxDemo> = {
-  title: 'Stilo/Components - Passive/Checkbox',
+  title: 'Stilo/Passives/Checkbox',
   component: CheckboxDemo,
   tags: ['autodocs'],
 };
 export default meta;
 type Story = StoryObj<typeof CheckboxDemo>;
 
-export const Default: Story = { args: { label: 'Accept terms', checked: false, disabled: false, showLabel: true } };
+export const Playground: Story = { args: { label: 'Accept terms', checked: false, disabled: false, showLabel: true } };
 export const Checked: Story = { args: { label: 'Accept terms', checked: true, disabled: false, showLabel: true } };
 export const Disabled: Story = { args: { label: 'Disabled option', checked: false, disabled: true, showLabel: true } };

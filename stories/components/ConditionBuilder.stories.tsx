@@ -88,14 +88,14 @@ function ConditionBuilderDemo({
 }
 
 const meta: Meta<typeof ConditionBuilderDemo> = {
-  title: 'Stilo/Component Sets/ConditionBuilder',
+  title: 'Stilo/Sets/ConditionBuilder',
   component: ConditionBuilderDemo,
   tags: ['autodocs'],
 };
 export default meta;
 type Story = StoryObj<typeof ConditionBuilderDemo>;
 
-export const Default: Story = {
+export const Playground: Story = {
   args: {
     fieldOptions: FIELD_OPTIONS,
     conditionOptions: CONDITION_OPTIONS,

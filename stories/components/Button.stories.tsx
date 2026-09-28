@@ -44,7 +44,7 @@ export function ButtonDemo({
 }
 
 const meta: Meta<typeof ButtonDemo> = {
-  title: 'Stilo/Components - Passive/Button',
+  title: 'Stilo/Passives/Button',
   component: ButtonDemo,
   tags: ['autodocs'],
 };

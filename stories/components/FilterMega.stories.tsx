@@ -57,14 +57,14 @@ function FilterMegaDemo({
 }
 
 const meta: Meta<typeof FilterMegaDemo> = {
-  title: 'Stilo/Components - Passive/FilterMega',
+  title: 'Stilo/Passives/FilterMega',
   component: FilterMegaDemo,
   tags: ['autodocs'],
 };
 export default meta;
 type Story = StoryObj<typeof FilterMegaDemo>;
 
-export const Default: Story = {
+export const Playground: Story = {
   args: {
     label: 'Filter',
     fields: DEMO_FIELDS,

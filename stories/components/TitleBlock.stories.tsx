@@ -39,4 +39,4 @@ const meta: Meta<typeof TitleBlockDemo> = {
 export default meta;
 type Story = StoryObj<typeof TitleBlockDemo>;
 
-export const Default: Story = { args: { title: 'Account Overview', actionLabel: 'Edit' } };
+export const Playground: Story = { args: { title: 'Account Overview', actionLabel: 'Edit' } };

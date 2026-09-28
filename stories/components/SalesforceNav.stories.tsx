@@ -43,7 +43,7 @@ const meta: Meta<typeof SalesforceNavDemo> = {
 export default meta;
 type Story = StoryObj<typeof SalesforceNavDemo>;
 
-export const Default: Story = {
+export const Playground: Story = {
   args: {
     appName: 'My App',
     items: [{ label: 'Home' }, { label: 'Accounts', hasDropdown: true }, { label: 'Contacts' }, { label: 'Reports' }],

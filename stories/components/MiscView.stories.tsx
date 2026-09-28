@@ -53,7 +53,7 @@ const meta: Meta<typeof MiscViewDemo> = {
 export default meta;
 type Story = StoryObj<typeof MiscViewDemo>;
 
-export const Default: Story = {
+export const Playground: Story = {
   args: {
     title: 'Analytics View',
     tabs: [{ id: 'overview', label: 'Overview' }, { id: 'details', label: 'Details' }, { id: 'history', label: 'History' }],

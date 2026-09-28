@@ -54,11 +54,11 @@ function TableSetDemo({ columns = COLS, rows = ROWS, variant = 'drawer' }: Table
 }
 
 const meta: Meta<typeof TableSetDemo> = {
-  title: 'Stilo/Component Sets/TableSet',
+  title: 'Stilo/Sets/TableSet',
   component: TableSetDemo,
   tags: ['autodocs'],
 };
 export default meta;
 type Story = StoryObj<typeof TableSetDemo>;
 
-export const Default: Story = { args: { columns: COLS, rows: ROWS, variant: 'drawer' } };
+export const Playground: Story = { args: { columns: COLS, rows: ROWS, variant: 'drawer' } };

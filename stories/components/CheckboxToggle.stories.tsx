@@ -50,14 +50,14 @@ function CheckboxToggleDemo({
 }
 
 const meta: Meta<typeof CheckboxToggleDemo> = {
-  title: 'Stilo/Components - Passive/CheckboxToggle',
+  title: 'Stilo/Passives/CheckboxToggle',
   component: CheckboxToggleDemo,
   tags: ['autodocs'],
 };
 export default meta;
 type Story = StoryObj<typeof CheckboxToggleDemo>;
 
-export const Default: Story = {
+export const Playground: Story = {
   args: {
     label: 'Enable notifications',
     showLabel: true,

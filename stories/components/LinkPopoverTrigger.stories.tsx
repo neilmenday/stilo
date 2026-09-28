@@ -45,14 +45,14 @@ function LinkPopoverTriggerDemo({
 }
 
 const meta: Meta<typeof LinkPopoverTriggerDemo> = {
-  title: 'Stilo/Components - Passive/LinkPopoverTrigger',
+  title: 'Stilo/Passives/LinkPopoverTrigger',
   component: LinkPopoverTriggerDemo,
   tags: ['autodocs'],
 };
 export default meta;
 type Story = StoryObj<typeof LinkPopoverTriggerDemo>;
 
-export const Default: Story = {
+export const Playground: Story = {
   args: {
     label: 'eligible records',
     title: 'Eligible records',

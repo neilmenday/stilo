@@ -50,14 +50,14 @@ function AvatarListItemDemo({
 }
 
 const meta: Meta<typeof AvatarListItemDemo> = {
-  title: 'Stilo/Components - Passive/AvatarListItem',
+  title: 'Stilo/Passives/AvatarListItem',
   component: AvatarListItemDemo,
   tags: ['autodocs'],
 };
 export default meta;
 type Story = StoryObj<typeof AvatarListItemDemo>;
 
-export const Default: Story = {
+export const Playground: Story = {
   args: {
     name: 'Neil Menday',
     avatarInitials: 'NM',

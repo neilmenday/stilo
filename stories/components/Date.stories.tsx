@@ -91,7 +91,7 @@ function DateDemo({
 }
 
 const meta: Meta<typeof DateDemo> = {
-  title: 'Stilo/Components - Passive/Date',
+  title: 'Stilo/Passives/Date',
   component: DateDemo,
   tags: ['autodocs'],
 };

@@ -55,6 +55,6 @@ const meta: Meta<typeof SettingsViewWithTabsDemo> = {
 export default meta;
 type Story = StoryObj<typeof SettingsViewWithTabsDemo>;
 
-export const Default: Story = {
+export const Playground: Story = {
   args: { title: 'Settings', navItems: ['General', 'Notifications'], tabs: [{ id: 'basic', label: 'Basic' }, { id: 'advanced', label: 'Advanced' }], isDirty: false },
 };

@@ -53,11 +53,11 @@ function OverlayDemo({
 }
 
 const meta: Meta<typeof OverlayDemo> = {
-  title: 'Stilo/Components - Passive/Overlay',
+  title: 'Stilo/Passives/Overlay',
   component: OverlayDemo,
   tags: ['autodocs'],
 };
 export default meta;
 type Story = StoryObj<typeof OverlayDemo>;
 
-export const Default: Story = { args: { title: 'Edit record', width: 480, variant: 'default' } };
+export const Playground: Story = { args: { title: 'Edit record', width: 480, variant: 'default' } };

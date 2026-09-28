@@ -57,14 +57,14 @@ function RadioGroupDemo({
 }
 
 const meta: Meta<typeof RadioGroupDemo> = {
-  title: 'Stilo/Components - Passive/RadioGroup',
+  title: 'Stilo/Passives/RadioGroup',
   component: RadioGroupDemo,
   tags: ['autodocs'],
 };
 export default meta;
 type Story = StoryObj<typeof RadioGroupDemo>;
 
-export const Default: Story = {
+export const Playground: Story = {
   args: {
     label: 'Notification frequency',
     options: DEFAULT_OPTIONS,

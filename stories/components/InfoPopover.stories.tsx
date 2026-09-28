@@ -40,14 +40,14 @@ function InfoPopoverDemo({
 }
 
 const meta: Meta<typeof InfoPopoverDemo> = {
-  title: 'Stilo/Components - Passive/InfoPopover',
+  title: 'Stilo/Passives/InfoPopover',
   component: InfoPopoverDemo,
   tags: ['autodocs'],
 };
 export default meta;
 type Story = StoryObj<typeof InfoPopoverDemo>;
 
-export const Default: Story = {
+export const Playground: Story = {
   args: {
     title: 'Field info',
     body: 'This value is auto-calculated from your regional settings.',

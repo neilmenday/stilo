@@ -23,14 +23,14 @@ function BreadcrumbDemo({ items }: BreadcrumbProps) {
 }
 
 const meta: Meta<typeof BreadcrumbDemo> = {
-  title: 'Stilo/Components - Passive/Breadcrumb',
+  title: 'Stilo/Passives/Breadcrumb',
   component: BreadcrumbDemo,
   tags: ['autodocs'],
 };
 export default meta;
 type Story = StoryObj<typeof BreadcrumbDemo>;
 
-export const Default: Story = {
+export const Playground: Story = {
   args: {
     items: [
       { label: 'Home', onClick: () => {} },

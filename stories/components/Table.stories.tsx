@@ -78,14 +78,14 @@ function TableDemo({
 }
 
 const meta: Meta<typeof TableDemo> = {
-  title: 'Stilo/Components - Passive/Table',
+  title: 'Stilo/Passives/Table',
   component: TableDemo,
   tags: ['autodocs'],
 };
 export default meta;
 type Story = StoryObj<typeof TableDemo>;
 
-export const Default: Story = {
+export const Playground: Story = {
   args: {
     columns: SAMPLE_COLUMNS,
     rows: SAMPLE_ROWS,

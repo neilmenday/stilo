@@ -39,7 +39,7 @@ function ScopedNotificationDemo({
 }
 
 const meta: Meta<typeof ScopedNotificationDemo> = {
-  title: 'Stilo/Components - Passive/ScopedNotification',
+  title: 'Stilo/Passives/ScopedNotification',
   component: ScopedNotificationDemo,
   tags: ['autodocs'],
 };

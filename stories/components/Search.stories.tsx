@@ -44,11 +44,11 @@ function SearchDemo({
 }
 
 const meta: Meta<typeof SearchDemo> = {
-  title: 'Stilo/Components - Passive/Search',
+  title: 'Stilo/Passives/Search',
   component: SearchDemo,
   tags: ['autodocs'],
 };
 export default meta;
 type Story = StoryObj<typeof SearchDemo>;
 
-export const Default: Story = { args: { variant: 'Default', label: 'Search records', showLabel: true } };
+export const Playground: Story = { args: { variant: 'Default', label: 'Search records', showLabel: true } };

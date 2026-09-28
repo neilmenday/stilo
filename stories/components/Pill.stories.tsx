@@ -41,14 +41,14 @@ export function PillDemo({
 }
 
 const meta: Meta<typeof PillDemo> = {
-  title: 'Stilo/Components - Passive/Pill',
+  title: 'Stilo/Passives/Pill',
   component: PillDemo,
   tags: ['autodocs'],
 };
 export default meta;
 type Story = StoryObj<typeof PillDemo>;
 
-export const Default: Story = { args: { label: 'Active', variant: 'Default' } };
+export const Playground: Story = { args: { label: 'Active', variant: 'Default' } };
 export const Dismissible: Story = { args: { label: 'North region', variant: 'Default', dismissible: true } };
 export const GoodIndicator: Story = { args: { label: 'Active', variant: 'Indicator - Good' } };
 export const BadIndicator: Story = { args: { label: 'Error', variant: 'Indicator - Bad' } };

@@ -4,7 +4,7 @@ import { Icon, IconProvider, defaultIcons } from '../../src/components/Icon';
 import type { IconRegistry } from '../../src/components/Icon';
 
 const meta: Meta<typeof Icon> = {
-  title: 'Stilo/Icons/Icon',
+  title: 'Stilo/Foundations/Icons',
   component: Icon,
   tags: ['autodocs'],
   parameters: {

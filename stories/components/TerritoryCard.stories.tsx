@@ -45,14 +45,14 @@ function TerritoryCardDemo({
 }
 
 const meta: Meta<typeof TerritoryCardDemo> = {
-  title: 'Stilo/Component Sets/TerritoryCard',
+  title: 'Stilo/Sets/TerritoryCard',
   component: TerritoryCardDemo,
   tags: ['autodocs'],
 };
 export default meta;
 type Story = StoryObj<typeof TerritoryCardDemo>;
 
-export const Default: Story = {
+export const Playground: Story = {
   args: {
     title: 'North Region',
     metaLabel: '12 records',

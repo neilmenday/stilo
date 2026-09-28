@@ -46,13 +46,13 @@ function InfoListGroupDemo({
 }
 
 const meta: Meta<typeof InfoListGroupDemo> = {
-  title: 'Stilo/Component Sets/InfoListGroup',
+  title: 'Stilo/Sets/InfoListGroup',
   component: InfoListGroupDemo,
   tags: ['autodocs'],
 };
 export default meta;
 type Story = StoryObj<typeof InfoListGroupDemo>;
 
-export const Default: Story = {
+export const Playground: Story = {
   args: { rows: DEMO_ROWS, identifierTitle: 'Name', statusTitle: 'Status' },
 };

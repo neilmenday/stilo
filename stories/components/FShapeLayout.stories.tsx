@@ -31,4 +31,4 @@ const meta: Meta<typeof FShapeLayoutDemo> = {
 export default meta;
 type Story = StoryObj<typeof FShapeLayoutDemo>;
 
-export const Default: Story = { args: {} };
+export const Playground: Story = { args: {} };

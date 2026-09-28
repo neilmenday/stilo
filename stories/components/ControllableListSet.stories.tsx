@@ -61,14 +61,14 @@ function ControllableListSetDemo({
 }
 
 const meta: Meta<typeof ControllableListSetDemo> = {
-  title: 'Stilo/Component Sets/ControllableListSet',
+  title: 'Stilo/Sets/ControllableListSet',
   component: ControllableListSetDemo,
   tags: ['autodocs'],
 };
 export default meta;
 type Story = StoryObj<typeof ControllableListSetDemo>;
 
-export const Default: Story = {
+export const Playground: Story = {
   args: {
     items: SAMPLE_ITEMS,
     identifierTitle: 'Name',
