@@ -1,3 +1,4 @@
+import type { InlineResponseVariant } from '../InlineResponse/types';
 // 'stacked' renders the same label-above-field layout as 'default' — an
 // explicit name for it, alongside 'horizontal-label', rather than leaving
 // that layout only reachable as the implicit default.
@@ -32,4 +33,7 @@ export interface ComboboxProps {
   // with any variant (including 'stacked'), unlike the 'inactive' variant
   // which is itself a fixed layout choice.
   disabled?: boolean;
+  /** Nested InlineResponse shown under the field (e.g. guidance about the choice). */
+  responseMessage?: string;
+  responseVariant?: InlineResponseVariant;
 }
