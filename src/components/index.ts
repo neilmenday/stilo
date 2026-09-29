@@ -54,6 +54,7 @@ export * from './Pill';
 export * from './PillColorPicker';
 export * from './Popover';
 export * from './RadioGroup';
+export * from './ResponseBlock';
 export * from './SalesforceNav';
 export * from './SalesforceHeader';
 export * from './ScopedNotification';
