@@ -7,6 +7,14 @@ interface UseRadioGroupOptions {
 
 export function useRadioGroup({ valueProp, onChange }: UseRadioGroupOptions = {}) {
   const [internalValue, setInternalValue] = useState<string | undefined>(valueProp);
+  // Follow the value prop when the parent changes it (e.g. a form loading a
+  // saved value after mount). Clicks still update internal state, so a group
+  // given a fixed value without onChange stays interactive.
+  const [prevValueProp, setPrevValueProp] = useState(valueProp);
+  if (valueProp !== prevValueProp) {
+    setPrevValueProp(valueProp);
+    setInternalValue(valueProp);
+  }
   const value = internalValue;
 
   const handleChange = (newValue: string) => {

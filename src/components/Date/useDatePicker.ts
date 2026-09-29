@@ -13,6 +13,8 @@ export interface UseDatePickerOptions {
   initialTo?:          Date;
   /** Initial value for the 'Time' variant, e.g. '09:00'. */
   initialTime?:        string;
+  /** Prevents the field from being opened or edited. */
+  disabled?:           boolean;
 }
 
 export function useDatePicker({
@@ -23,6 +25,7 @@ export function useDatePicker({
   initialFrom,
   initialTo,
   initialTime,
+  disabled = false,
 }: UseDatePickerOptions) {
   const [isOpen,      setIsOpen]      = useState(false);
   const [rangeFrom,   setRangeFrom]   = useState<Date | null>(initialFrom ?? null);
@@ -53,7 +56,11 @@ export function useDatePicker({
     onOpenChange?.(true);
   };
 
-  const toggleCalendar = () => (isOpen ? closeCalendar() : openCalendar());
+  const toggleCalendar = () => {
+    if (disabled) return;
+    if (isOpen) closeCalendar();
+    else openCalendar();
+  };
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
@@ -66,6 +73,11 @@ export function useDatePicker({
     return () => document.removeEventListener('mousedown', handler);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [calendarContainer]);
+
+  useEffect(() => {
+    if (disabled && isOpen) closeCalendar();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [disabled]);
 
   useEffect(() => {
     if (!isOpen) return;
