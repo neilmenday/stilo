@@ -2,6 +2,9 @@ export interface RadioOptionType {
   value: string;
   label: string;
   disabled?: boolean;
+  /** Shows an info icon after the option's label; hovering it shows this title and body. */
+  infoTitle?: string;
+  infoBody?: string;
 }
 
 export interface RadioGroupProps {
