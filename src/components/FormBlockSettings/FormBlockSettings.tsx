@@ -75,8 +75,8 @@ function FormBlockRow({
         )}
       </div>
       <div data-stilo="form-block-row-fields" style={{ display: 'flex', alignItems: 'center', gap: 'var(--form-row-field-gap, 12px)', flexShrink: 0 }}>
-        {renderField({ field: row.fields[0], inactive: false,            toggleChecked: toggleStates[0], onToggleChange: v => setToggle(0, v), onActivate: () => setPrimaryHasValue(true) })}
-        {hasTwo && renderField({ field: row.fields[1], inactive: !primaryHasValue, toggleChecked: toggleStates[1], onToggleChange: v => setToggle(1, v), onActivate: () => {} })}
+        {renderField({ field: row.fields[0], inactive: false,            toggleChecked: row.fields[0].checked ?? toggleStates[0], onToggleChange: v => setToggle(0, v), onActivate: () => setPrimaryHasValue(true) })}
+        {hasTwo && renderField({ field: row.fields[1], inactive: !primaryHasValue, toggleChecked: row.fields[1].checked ?? toggleStates[1], onToggleChange: v => setToggle(1, v), onActivate: () => {} })}
       </div>
     </div>
   );

@@ -7,6 +7,13 @@ export interface FormBlockFieldDef {
   placeholder?: string;
   onSelect?: (item: { value: string; label: string }) => void;
   onToggleChange?: (checked: boolean) => void;
+  /** Toggle: its current state, when the row's data owns it (otherwise the row keeps its own, starting off). */
+  checked?: boolean;
+  /** Toggle: status text for on / off (defaults On / Off). */
+  onLabel?: string;
+  offLabel?: string;
+  /** Show the field's label (default true). */
+  showLabel?: boolean;
   onTextChange?: (value: string) => void;
   dateVariant?: string;
   onDateChange?: (value: string) => void;
