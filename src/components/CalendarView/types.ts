@@ -29,6 +29,8 @@ export interface CalendarViewProps {
   initialYear?:     number;
   initialMonth?:    number;
   header?: React.ReactNode;
+  /** Replaces the built-in calendar in the body, e.g. a module that wraps a ControllableCalendarSet. */
+  children?: React.ReactNode;
 }
 
 export function parseKeyMs(key: string): number {
