@@ -19,6 +19,8 @@ export interface ExpandableBoxProps {
   linkLabel?: string;
   /** Link variant: makes the link a text button (clicking it doesn't open or close the box). */
   onLinkClick?: () => void;
+  /** Link variant: an icon after the link label (an icon registry name, e.g. a new-window icon when the link leaves the page). */
+  linkIcon?: string;
   children?: React.ReactNode;
   onChange?: (value: boolean) => void;
 }
