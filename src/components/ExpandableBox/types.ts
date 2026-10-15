@@ -17,6 +17,8 @@ export interface ExpandableBoxProps {
   showDragHandle?: boolean;
   pillLabel?: string;
   linkLabel?: string;
+  /** Link variant: makes the link a text button (clicking it doesn't open or close the box). */
+  onLinkClick?: () => void;
   children?: React.ReactNode;
   onChange?: (value: boolean) => void;
 }
