@@ -1,7 +1,9 @@
 import { useState } from 'react';
 
-export function useFormBlockRow() {
-  const [primaryHasValue, setPrimaryHasValue] = useState(false);
+// The second field stays inactive until the first has a value; a first field
+// that starts with one (a prefilled value, a toggle on) counts from the start.
+export function useFormBlockRow(primaryStartsWithValue = false) {
+  const [primaryHasValue, setPrimaryHasValue] = useState(primaryStartsWithValue);
   const [toggleStates,    setToggleStates]    = useState([false, false]);
 
   const setToggle = (idx: number, v: boolean) => {

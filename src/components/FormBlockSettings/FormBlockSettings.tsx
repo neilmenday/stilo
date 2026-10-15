@@ -40,7 +40,7 @@ function FormBlockRow({
   showDescriptions: boolean;
   renderField: FormBlockSettingsStructureProps['renderField'];
 }) {
-  const { primaryHasValue, setPrimaryHasValue, toggleStates, setToggle } = useFormBlockRow();
+  const { primaryHasValue, setPrimaryHasValue, toggleStates, setToggle } = useFormBlockRow(!!row.fields[0].value || !!row.fields[0].checked);
   const hasTwo = row.fields.length === 2;
 
   return (

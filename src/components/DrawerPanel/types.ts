@@ -11,6 +11,7 @@ export interface DrawerPanelProps {
   saveLabel?:       string;
   cancelLabel?:     string;
   saveDisabled?:    boolean;
+  cancelDisabled?:  boolean;
   actions?:         React.ReactNode;
   width?:           number;
   onBackdropClick?: () => void;

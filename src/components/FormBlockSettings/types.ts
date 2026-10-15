@@ -15,6 +15,12 @@ export interface FormBlockFieldDef {
   /** Show the field's label (default true). */
   showLabel?: boolean;
   onTextChange?: (value: string) => void;
+  /** Textfield: its current value, when the row's data owns it. */
+  value?: string;
+  /** Textfield: the text field variant (e.g. 'Number field'). */
+  textVariant?: string;
+  /** Field shown but not editable. */
+  disabled?: boolean;
   dateVariant?: string;
   onDateChange?: (value: string) => void;
   buttons?: string[];

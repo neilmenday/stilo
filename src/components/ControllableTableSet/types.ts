@@ -14,6 +14,10 @@ export interface ControllableTableSetProps {
   overlayWidth?:       number;
   /** Set false to hide the drawer panel's built-in Save/Cancel footer. Defaults to true. Drawer variant only. */
   showPanelFooter?:    boolean;
+  /** Whether the drawer has unsaved edits. When given: with no edits, Save and
+   *  Cancel are disabled and clicking outside closes the drawer; with edits,
+   *  only Save / Cancel close it. Drawer variant only. */
+  panelDirty?:         boolean;
   tabs?:          { id: string; label: string }[];
   activeTabId?:   string;
   onTabChange?:   (id: string) => void;

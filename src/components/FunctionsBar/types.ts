@@ -8,6 +8,8 @@ export interface FunctionsBarProps {
   saveLabel?: string;
   onSave?: () => void;
   saveDisabled?: boolean;
+  /** Cancel shown but not clickable, e.g. when there's nothing to cancel. */
+  cancelDisabled?: boolean;
   configureLabel?: string;
   onConfigure?: () => void;
   configureDisabled?: boolean;
