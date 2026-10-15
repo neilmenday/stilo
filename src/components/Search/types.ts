@@ -1,4 +1,5 @@
-export type SearchVariant    = 'Default' | 'Searched' | 'Category' | 'Select';
+// Mini: the mini Combobox's size and type, no label - just the placeholder.
+export type SearchVariant    = 'Default' | 'Searched' | 'Category' | 'Select' | 'Mini';
 export type SearchListVariant = 'list' | 'multi-select';
 
 export interface SearchSelectItem {
