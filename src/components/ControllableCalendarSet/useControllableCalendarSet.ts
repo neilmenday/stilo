@@ -1,6 +1,7 @@
 import { useState, useMemo, useEffect } from 'react';
 import type { CalendarEventMap, CalendarEvent } from '../Calendar/types';
 import type { CalendarEventWithDate } from './types';
+import type { FilterField } from '../FilterMega/types';
 
 interface UseControllableCalendarSetOptions {
   events: CalendarEventMap;
@@ -8,6 +9,10 @@ interface UseControllableCalendarSetOptions {
   onEventClick?: (event: CalendarEventWithDate) => void;
   onPanelSave?: (event: CalendarEventWithDate) => void;
   onDayClick?: (dateKey: string, dayNumber: number) => void;
+  /** More filter fields, after the built-in colour one (e.g. Team). The hook
+   *  doesn't filter events by these - the consumer reads the chosen values
+   *  (filterMegaValues) and passes the events to show. */
+  extraFilterFields?: FilterField[];
 }
 
 export function useControllableCalendarSet({
@@ -16,6 +21,7 @@ export function useControllableCalendarSet({
   onEventClick,
   onPanelSave,
   onDayClick,
+  extraFilterFields = [],
 }: UseControllableCalendarSetOptions) {
   const [searchText,       setSearchText]       = useState('');
   const [filterValue,      setFilterValue]      = useState<string | null>(null);
@@ -34,7 +40,7 @@ export function useControllableCalendarSet({
       day.events?.forEach(ev => { if (ev.color) colors.add(ev.color); });
       day.spanEvents?.forEach(ev => { if (ev.color) colors.add(ev.color); });
     });
-    if (colors.size === 0) return [];
+    if (colors.size === 0) return extraFilterFields;
     const colorLabels: Record<string, string> = {
       green: 'Working', orange: 'Out of office', blue: 'Holiday', violet: 'Meeting',
     };
@@ -43,15 +49,17 @@ export function useControllableCalendarSet({
       label: 'Color',
       type:  'combobox' as const,
       items: Array.from(colors).map(v => ({ value: v, label: colorLabels[v] ?? v.charAt(0).toUpperCase() + v.slice(1) })),
-    }];
-  }, [events]);
+    }, ...extraFilterFields];
+  }, [events, extraFilterFields]);
 
   const clearAllFilters = () => { setFilterValue(null); setFilterMegaValues({}); };
 
   const enrichedEvents = useMemo<CalendarEventMap>(() => {
     const matchEvent = (ev: CalendarEvent): boolean => {
       if (searchText.trim() && !ev.label.toLowerCase().includes(searchText.toLowerCase())) return false;
-      if (filterValue && ev.color !== filterValue) return false;
+      // One field: the combobox value; several: the FilterMega panel's colour.
+      const color = filterValue ?? filterMegaValues.color;
+      if (color && ev.color !== color) return false;
       return true;
     };
     const sortedKeys = Object.keys(events).sort((a, b) => {
@@ -83,7 +91,7 @@ export function useControllableCalendarSet({
       }
     });
     return result;
-  }, [events, searchText, filterValue, variant, onEventClick]);
+  }, [events, searchText, filterValue, filterMegaValues.color, variant, onEventClick]);
 
   return {
     searchText,

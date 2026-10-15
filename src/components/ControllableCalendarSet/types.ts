@@ -1,3 +1,4 @@
+import type { FilterField } from '../FilterMega/types';
 import type React from 'react';
 import type { CalendarEventMap, CalendarEvent } from '../Calendar/types';
 
@@ -10,6 +11,9 @@ export interface CalendarEventWithDate extends CalendarEvent {
 
 export interface ControllableCalendarSetProps {
   events?:       CalendarEventMap;
+  /** More Filter fields after the built-in colour one (e.g. Team); the chosen values come back through onFilterChange. */
+  extraFilterFields?: FilterField[];
+  onFilterChange?:    (values: Record<string, string>) => void;
   initialYear?:  number;
   initialMonth?: number;
   variant?:            CalendarSetVariant;

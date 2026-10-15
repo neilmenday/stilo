@@ -1,3 +1,4 @@
+import type { FilterField } from '../FilterMega/types';
 import type React from 'react';
 import type { CalendarEventMap, ContentBlockColor } from '../Calendar/types';
 
@@ -20,6 +21,9 @@ export interface CalendarViewProps {
   buttonLabel?:            string;
   events?:          CalendarEventMap;
   onEventsChange?:  (events: CalendarEventMap) => void;
+  /** More Filter fields after the built-in colour one (e.g. Team); the chosen values come back through onFilterChange. */
+  extraFilterFields?: FilterField[];
+  onFilterChange?:    (values: Record<string, string>) => void;
   onButtonClick?:   () => void;
   onDayClick?:      (dateKey: string, dayNumber: number) => void;
   initialYear?:     number;
