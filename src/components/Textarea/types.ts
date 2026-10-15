@@ -18,4 +18,9 @@ export interface TextareaProps {
   layout?: 'stacked' | 'inline';
   labelWidth?: number;
   labelAlign?: 'left' | 'right';
+  /** Tag mode: the field holds these tags as removable pills, with text typed
+   *  after them. Enter or comma adds the typed text as a tag; left / right
+   *  arrows cycle through the tags; Backspace / Delete removes the focused one. */
+  tags?: string[];
+  onTagsChange?: (tags: string[]) => void;
 }
