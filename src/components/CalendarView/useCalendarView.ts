@@ -2,13 +2,7 @@ import { useState, useMemo, useCallback } from 'react';
 import type { CalendarEventMap, ContentBlockColor } from '../Calendar/types';
 import { getSpanRange } from './types';
 
-interface CalendarEventWithDate {
-  label: string;
-  color?: string;
-  dateKey: string;
-  isSpan: boolean;
-  [key: string]: unknown;
-}
+import type { CalendarEventWithDate } from '../ControllableCalendarSet/types';
 
 interface UseCalendarViewOptions {
   events: CalendarEventMap;

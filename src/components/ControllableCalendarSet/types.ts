@@ -26,6 +26,8 @@ export interface ControllableCalendarSetProps {
   activeTabId?: string;
   onTabChange?: (id: string) => void;
   onDayClick?: (dateKey: string, dayNumber: number) => void;
+  /** Makes events editable: clicking one opens the set's event edit drawer, and edits come back here. */
+  onEventsChange?: (events: CalendarEventMap) => void;
   onEventClick?: (event: CalendarEventWithDate) => void;
   searchLabel?:          string;
   buttonLabel?:          string;
