@@ -1,4 +1,5 @@
 import type { ButtonGroupLayout } from '../ButtonGroup/types';
+import type { TextFieldVariant } from '../TextField/types';
 
 export interface FormBlockFieldDef {
   type: 'combobox' | 'toggle' | 'textfield' | 'date' | 'buttongroup';
@@ -18,7 +19,7 @@ export interface FormBlockFieldDef {
   /** Textfield: its current value, when the row's data owns it. */
   value?: string;
   /** Textfield: the text field variant (e.g. 'Number field'). */
-  textVariant?: string;
+  textVariant?: TextFieldVariant;
   /** Field shown but not editable. */
   disabled?: boolean;
   dateVariant?: string;
