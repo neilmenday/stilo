@@ -35,6 +35,7 @@ export * from './FShapeLayout';
 export * from './FunctionsBar';
 export * from './GridCard';
 export * from './GridView';
+export * from './GridViewWithTabs';
 export * from './HeaderBlock';
 export * from './HShapeLayout';
 export * from './Icon';
