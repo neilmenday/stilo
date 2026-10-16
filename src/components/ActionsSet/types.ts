@@ -9,7 +9,7 @@ export type ViewMode = 'table' | 'list';
 export type ActionsSetExtra = { placement?: 'start' | 'end' } & (
   | { type: 'combobox'; label: string; items: { value: string; label: string }[]; displayValue?: string; placeholder?: string; onSelect?: (item: { value: string; label: string }) => void }
   | { type: 'text-button'; label: string; onClick?: () => void }
-  | { type: 'toggle'; label: string; checked: boolean; onChange?: (checked: boolean) => void; onLabel?: string; offLabel?: string; disabled?: boolean }
+  | { type: 'toggle'; label: string; checked: boolean; onChange?: (checked: boolean) => void; onLabel?: string; offLabel?: string; disabled?: boolean; showInfo?: boolean }
   | { type: 'divider' }
 );
 
