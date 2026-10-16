@@ -7,6 +7,8 @@ export interface ControllableTableSetProps {
   rows: unknown[];
   variant?:            ControllableTableSetVariant;
   panelTitle?:         (row: unknown) => string;
+  /** Extra information after the drawer's title for this row (e.g. status pills). */
+  panelTitleAddon?:    (row: unknown) => React.ReactNode;
   renderPanelContent?: (row: unknown, onClose: () => void) => React.ReactNode;
   onPanelSave?:        (row: unknown) => void;
   onNavigate?:         (row: unknown) => void;
