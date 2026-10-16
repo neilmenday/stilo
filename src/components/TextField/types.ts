@@ -25,6 +25,8 @@ export interface TextFieldProps {
   onChange?:    (v: string) => void;
   required?:    boolean;
   disabled?:    boolean;
+  /** Puts the cursor in the field when it appears (e.g. an overlay's first field). */
+  autoFocus?:   boolean;
   id?:          string;
   labelWidth?:  number;
   labelAlign?:  'left' | 'right';
