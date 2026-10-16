@@ -7,4 +7,7 @@ export interface ScopedNotificationProps {
   label?:       ReactNode;
   iconVisible?: boolean;
   onCopy?:      () => void;
+  /** A link at the end of the message - the Action in 'Statement. Consequence. Action.' */
+  actionLabel?: string;
+  onAction?:    () => void;
 }
