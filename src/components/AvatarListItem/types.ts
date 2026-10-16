@@ -18,5 +18,7 @@ export interface AvatarListItemProps {
   showIdentifierIcon?: boolean;
   identifierIconName?: string;
   identifierActive?: boolean;
+  /** Plain text in the meta row (after any pills), for information about the identifier that isn't a status. */
+  metaText?: string;
   metaPills?: { label: string; variant?: 'Default' | 'Indicator' | 'Indicator - Good' | 'Indicator - Bad' }[];
 }

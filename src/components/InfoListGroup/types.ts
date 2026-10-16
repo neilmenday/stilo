@@ -11,6 +11,11 @@ export interface InfoListRow {
   status?:              'active' | 'inactive';
   showMeta?:            boolean;
   metaLabel?:           string;
+  /** Under the identifier: status pills, then text, about the identifier itself. */
+  metaPills?:           { label: string; variant?: 'Default' | 'Indicator' | 'Indicator - Good' | 'Indicator - Bad' }[];
+  metaText?:            string;
+  /** Pills after the status toggle (e.g. Out of office). */
+  statusPills?:         { label: string; variant?: 'Default' | 'Indicator' | 'Indicator - Good' | 'Indicator - Bad' }[];
   supportingText?:      string;
   avatarCount?:         number;
   avatarSrcs?:          string[];

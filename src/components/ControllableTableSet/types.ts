@@ -18,6 +18,13 @@ export interface ControllableTableSetProps {
    *  Cancel are disabled and clicking outside closes the drawer; with edits,
    *  only Save / Cancel close it. Drawer variant only. */
   panelDirty?:         boolean;
+  /** View options: switch between the table and a list of the same rows. The list
+   *  takes the Identifier column as its identifier, columns marked
+   *  `listSlot: 'meta'` under it (pills, then text), the Toggle column as its
+   *  status (with its pills), and the remaining column as supporting info. */
+  showViewOptions?:    boolean;
+  viewMode?:           'table' | 'list';
+  onViewModeChange?:   (mode: 'table' | 'list') => void;
   tabs?:          { id: string; label: string }[];
   activeTabId?:   string;
   onTabChange?:   (id: string) => void;

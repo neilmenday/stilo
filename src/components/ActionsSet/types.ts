@@ -1,5 +1,7 @@
 export type FilterVariant = 'combobox' | 'filter-mega';
 
+export type ViewMode = 'table' | 'list';
+
 export interface ActionsSetProps {
   filterVariant?:   FilterVariant;
   showFilter?:      boolean;
@@ -37,4 +39,8 @@ export interface ActionsSetProps {
   showHistory?:    boolean;
   historyLabel?:   string;
   onHistoryClick?: () => void;
+  /** View options (Table / List), on the far right. */
+  showViewOptions?:  boolean;
+  viewMode?:         ViewMode;
+  onViewModeChange?: (mode: ViewMode) => void;
 }

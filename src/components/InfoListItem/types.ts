@@ -32,6 +32,9 @@ export interface InfoListItemProps {
   offLabel?:          string;
   showMeta?:          boolean;
   metaLabel?:         string;
+  metaPills?:         { label: string; variant?: 'Default' | 'Indicator' | 'Indicator - Good' | 'Indicator - Bad' }[];
+  metaText?:          string;
+  statusPills?:       { label: string; variant?: 'Default' | 'Indicator' | 'Indicator - Good' | 'Indicator - Bad' }[];
   showIdentifierIcon?: boolean;
   identifierIconName?: string;
   identifierActive?:   boolean;
