@@ -73,4 +73,5 @@ export * from './TitleBlock';
 export * from './Toast';
 export * from './UnsavedChangesGuard';
 export * from './WorkflowManaged';
+export * from './ViewOptions';
 export * from './Workflows';

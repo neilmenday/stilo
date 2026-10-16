@@ -18,13 +18,26 @@ export interface ControllableTableSetProps {
    *  Cancel are disabled and clicking outside closes the drawer; with edits,
    *  only Save / Cancel close it. Drawer variant only. */
   panelDirty?:         boolean;
-  /** View options: switch between the table and a list of the same rows. The list
-   *  takes the Identifier column as its identifier, columns marked
-   *  `listSlot: 'meta'` under it (pills, then text), the Toggle column as its
-   *  status (with its pills), and the remaining column as supporting info. */
+  /** View options (Table / List). On by default in every view; false for a
+   *  table-only view. The list keeps the same information:
+   *  - the Identifier column -> the list identifier
+   *  - the Toggle column -> the status on the right (with its pills)
+   *  - Dot menu / Icon cells -> the list's action column
+   *  - a column marked `listSlot: 'supporting'` (what the identifier is part of,
+   *    or who acted on it) -> the supporting column (one for now)
+   *  - every other column is owned by the identifier -> under it (pills, then
+   *    text), unless `listMeta` says how to show them */
   showViewOptions?:    boolean;
   viewMode?:           'table' | 'list';
   onViewModeChange?:   (mode: 'table' | 'list') => void;
+  /** Which table this is, for remembering its view (defaults to its column keys). */
+  viewOptionsKey?:     string;
+  /** The items under the list identifier, in order: a column, or several
+   *  columns blended into one item with a template (`{key}` = that column's
+   *  value), e.g. 'Meeting on {meeting} for {duration}'. `as` picks pill or
+   *  text (default: a Pill column or a template -> pill, otherwise text).
+   *  Owned columns not mentioned are added after, so nothing is lost. */
+  listMeta?: ({ column: string; as?: 'pill' | 'text' } | { template: string; as?: 'pill' | 'text' })[];
   tabs?:          { id: string; label: string }[];
   activeTabId?:   string;
   onTabChange?:   (id: string) => void;
