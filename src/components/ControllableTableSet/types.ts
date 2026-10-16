@@ -42,6 +42,15 @@ export interface ControllableTableSetProps {
   activeTabId?:   string;
   onTabChange?:   (id: string) => void;
   tabFilterKey?:  string;
+  /** Custom Filter fields (e.g. date ranges) in place of the ones derived from
+   *  the columns. The consumer filters the rows, from onFilterChange's values. */
+  filterFields?: { key: string; label: string; type: 'combobox' | 'date'; items?: { value: string; label: string }[] }[];
+  onFilterChange?: (values: Record<string, string>) => void;
+  /** Extra ActionsSet controls (setting Combobox, text Button, toggle, divider). */
+  actionsExtras?: import('../ActionsSet/types').ActionsSetExtra[];
+  /** Whether the Action list needs selected rows first (default true, for bulk
+   *  actions). False for actions on the whole table, e.g. "Reorder". */
+  actionNeedsSelection?: boolean;
   filterPanelWidth?: number;
   renderFilterResponse?: (values: Record<string, string>) => React.ReactNode;
   searchLabel?: string;

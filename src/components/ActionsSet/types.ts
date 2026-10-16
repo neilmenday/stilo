@@ -2,6 +2,17 @@ export type FilterVariant = 'combobox' | 'filter-mega';
 
 export type ViewMode = 'table' | 'list';
 
+/** Extra controls an ActionsSet can carry alongside its standard ones - only
+ *  the kinds DE screens already use: a setting Combobox, a text Button, a
+ *  labelled toggle, and a divider between groups. `placement` 'start' puts it
+ *  before the filter; otherwise it follows the standard controls. */
+export type ActionsSetExtra = { placement?: 'start' | 'end' } & (
+  | { type: 'combobox'; label: string; items: { value: string; label: string }[]; displayValue?: string; placeholder?: string; onSelect?: (item: { value: string; label: string }) => void }
+  | { type: 'text-button'; label: string; onClick?: () => void }
+  | { type: 'toggle'; label: string; checked: boolean; onChange?: (checked: boolean) => void; onLabel?: string; offLabel?: string; disabled?: boolean }
+  | { type: 'divider' }
+);
+
 export interface ActionsSetProps {
   filterVariant?:   FilterVariant;
   showFilter?:      boolean;
@@ -39,6 +50,8 @@ export interface ActionsSetProps {
   showHistory?:    boolean;
   historyLabel?:   string;
   onHistoryClick?: () => void;
+  /** Extra controls (setting Combobox, text Button, toggle, divider). */
+  extras?: ActionsSetExtra[];
   /** View options (Table / List), on the far right. */
   showViewOptions?:  boolean;
   viewMode?:         ViewMode;
