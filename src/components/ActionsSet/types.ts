@@ -2,6 +2,10 @@ export type FilterVariant = 'combobox' | 'filter-mega';
 
 export type ViewMode = 'table' | 'list';
 
+/** 'non-filter': actions only - no Filter, Search or Action list; the primary
+ *  button, History and any extras, centred on one line. */
+export type ActionsSetVariant = 'default' | 'non-filter';
+
 /** Extra controls an ActionsSet can carry alongside its standard ones - only
  *  the kinds DE screens already use: a setting Combobox, a text Button, a
  *  labelled toggle, and a divider between groups. `placement` 'start' puts it
@@ -14,6 +18,7 @@ export type ActionsSetExtra = { placement?: 'start' | 'end' } & (
 );
 
 export interface ActionsSetProps {
+  variant?:         ActionsSetVariant;
   filterVariant?:   FilterVariant;
   showFilter?:      boolean;
   filterLabel?:          string;
