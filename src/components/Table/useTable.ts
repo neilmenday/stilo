@@ -1,35 +1,43 @@
 import { useState, useMemo } from 'react';
 
+import type { TableSort } from './types';
+
 interface UseTableOptions {
   columns: { key: string; cellType?: string; headerType?: string }[];
   rows: Record<string, unknown>[];
   onSelectionChange?: (selectedCount: number, selectedRows: unknown[]) => void;
+  sort?: TableSort;
+  onSortChange?: (sort: TableSort) => void;
 }
 
-export function useTable({ columns, rows, onSelectionChange }: UseTableOptions) {
-  const [selectedRows, setSelectedRows] = useState(new Set<number>());
-  const [sortKey, setSortKey] = useState<string | null>(() => {
-    const identCol = columns.find(c => c.cellType === 'Identifier cell');
-    if (identCol) return identCol.key;
-    const orderCol = columns.find(c => c.headerType === 'Order Default' || c.headerType === 'Order Down' || c.headerType === 'Order Up');
-    return orderCol?.key ?? null;
-  });
-  const [sortDir, setSortDir] = useState<'asc' | 'desc' | null>(() => {
-    const identCol = columns.find(c => c.cellType === 'Identifier cell');
-    if (identCol) return 'asc';
-    const orderCol = columns.find(c => c.headerType === 'Order Default' || c.headerType === 'Order Down' || c.headerType === 'Order Up');
-    if (!orderCol) return null;
-    return orderCol.headerType === 'Order Down' ? 'desc' : 'asc';
-  });
+/** A table's starting sort: its Identifier column A-Z, else its first Order column. */
+export function initialTableSort(columns: { key: string; cellType?: string; headerType?: string }[]): TableSort {
+  const identCol = columns.find(c => c.cellType === 'Identifier cell');
+  if (identCol) return { key: identCol.key, dir: 'asc' };
+  const orderCol = columns.find(c => c.headerType === 'Order Default' || c.headerType === 'Order Down' || c.headerType === 'Order Up');
+  if (!orderCol) return { key: null, dir: null };
+  return { key: orderCol.key, dir: orderCol.headerType === 'Order Down' ? 'desc' : 'asc' };
+}
 
-  const sortedRows = sortKey && sortDir
-    ? [...rows].sort((a, b) => {
-        const av = a[sortKey] ?? '';
-        const bv = b[sortKey] ?? '';
-        const cmp = String(av).localeCompare(String(bv), undefined, { numeric: true });
-        return sortDir === 'asc' ? cmp : -cmp;
-      })
-    : rows;
+/** Rows in a sort's order (shared by the table and anything showing the same rows). */
+export function sortTableRows<T extends Record<string, unknown>>(rows: T[], sort: TableSort): T[] {
+  const { key, dir } = sort;
+  if (!key || !dir) return rows;
+  return [...rows].sort((a, b) => {
+    const cmp = String(a[key] ?? '').localeCompare(String(b[key] ?? ''), undefined, { numeric: true });
+    return dir === 'asc' ? cmp : -cmp;
+  });
+}
+
+export function useTable({ columns, rows, onSelectionChange, sort: controlledSort, onSortChange }: UseTableOptions) {
+  const [selectedRows, setSelectedRows] = useState(new Set<number>());
+  const [ownSort, setOwnSort] = useState<TableSort>(() => initialTableSort(columns));
+  const sort = controlledSort ?? ownSort;
+  const setSort = (next: TableSort) => { setOwnSort(next); onSortChange?.(next); };
+  const sortKey = sort.key;
+  const sortDir = sort.dir;
+
+  const sortedRows = sortTableRows(rows, sort);
 
   const selectedRowsData = (indices: Set<number>) =>
     Array.from(indices).map(i => sortedRows[i]).filter((r): r is Record<string, unknown> => r !== undefined);
@@ -49,9 +57,9 @@ export function useTable({ columns, rows, onSelectionChange }: UseTableOptions) 
   };
 
   const handleSort = (colKey: string) => {
-    if (sortKey !== colKey) { setSortKey(colKey); setSortDir('asc'); }
-    else if (sortDir === 'asc') { setSortDir('desc'); }
-    else { setSortKey(null); setSortDir(null); }
+    if (sortKey !== colKey) setSort({ key: colKey, dir: 'asc' });
+    else if (sortDir === 'asc') setSort({ key: colKey, dir: 'desc' });
+    else setSort({ key: null, dir: null });
   };
 
   return { selectedRows, sortKey, sortDir, allSelected, sortedRows, toggleRow, toggleAll, handleSort };
