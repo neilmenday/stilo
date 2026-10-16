@@ -2,15 +2,17 @@ import { useState } from 'react';
 
 interface UseButtonGroupOptions {
   onChange?: (index: number) => void;
+  /** Controlled active index; the group's own state is used when absent. */
+  activeIndex?: number;
 }
 
-export function useButtonGroup({ onChange }: UseButtonGroupOptions = {}) {
-  const [activeIndex, setActiveIndex] = useState(0);
+export function useButtonGroup({ onChange, activeIndex: controlled }: UseButtonGroupOptions = {}) {
+  const [ownIndex, setOwnIndex] = useState(controlled ?? 0);
 
   const handleClick = (i: number) => {
-    setActiveIndex(i);
+    setOwnIndex(i);
     onChange?.(i);
   };
 
-  return { activeIndex, handleClick };
+  return { activeIndex: controlled ?? ownIndex, handleClick };
 }
