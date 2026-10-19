@@ -27,6 +27,8 @@ export interface ListItemProps {
   offLabel?:           string;
   showMeta?:           boolean;
   metaLabel?:          string;
+  /** Identifier: plain text in the meta row, for information about the identifier itself. */
+  metaText?:           string;
   showIdentifierIcon?: boolean;
   identifierIconName?: string;
   identifierActive?:   boolean;
