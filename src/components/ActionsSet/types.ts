@@ -57,6 +57,8 @@ export interface ActionsSetProps {
   onHistoryClick?: () => void;
   /** Extra controls (setting Combobox, text Button, toggle, divider). */
   extras?: ActionsSetExtra[];
+  /** Select all, at the right-hand end - for card grids whose cards have checkboxes. */
+  selectAll?: { checked: boolean; onChange: (checked: boolean) => void; label?: string };
   /** View options (Table / List), on the far right. */
   showViewOptions?:  boolean;
   viewMode?:         ViewMode;
