@@ -17,8 +17,9 @@ export interface GridCardProps {
   variant?:            GridCardVariant;
   /** Summary: the people (e.g. team members) as an AvatarRow. */
   avatars?:            AvatarRowProps;
-  /** Summary: the sentence's link part (dotted underline), then its plain text. */
-  summaryLink?:        { label: string; onClick?: () => void };
+  /** Summary: the sentence's link part (dotted underline), then its plain text.
+   *  With popoverItems, hovering the link shows them listed in a popover. */
+  summaryLink?:        { label: string; onClick?: () => void; popoverTitle?: string; popoverItems?: string[] };
   summaryText?:        string;
   /** Problem detected state (red border), e.g. a team with no active distributors. */
   hasProblem?:         boolean;

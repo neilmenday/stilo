@@ -17,7 +17,7 @@ export interface GridItem {
   /** cardVariant 'grid': the GridCard variant and its summary-variant parts. */
   gridCardVariant?: GridCardVariant;
   avatars?:         AvatarRowProps;
-  summaryLink?:     { label: string; onClick?: () => void };
+  summaryLink?:     { label: string; onClick?: () => void; popoverTitle?: string; popoverItems?: string[] };
   summaryText?:     string;
   hasProblem?:      boolean;
   [key: string]: unknown;
