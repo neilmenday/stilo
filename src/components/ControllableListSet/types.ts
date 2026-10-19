@@ -24,6 +24,14 @@ export interface ListItem {
 }
 
 export interface ControllableListSetProps {
+  /** View options (List / Table), on by default; false for a list-only view.
+   *  The table keeps the same information: identifier (with its meta pills),
+   *  supporting info, status toggle and actions as columns. */
+  showViewOptions?:  boolean;
+  viewMode?:         'list' | 'table';
+  onViewModeChange?: (mode: 'list' | 'table') => void;
+  /** Which list this is, for remembering its view (defaults to its column titles). */
+  viewOptionsKey?:   string;
   items: ListItem[];
   variant?:             string;
   panelTitle?:          (item: ListItem) => string;

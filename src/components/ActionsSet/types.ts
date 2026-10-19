@@ -1,6 +1,6 @@
 export type FilterVariant = 'combobox' | 'filter-mega';
 
-export type ViewMode = 'table' | 'list';
+export type ViewMode = 'table' | 'list' | 'grid';
 
 /** 'non-filter': actions only - no Filter, Search or Action list; the primary
  *  button, History and any extras, centred on one line. */
@@ -62,5 +62,7 @@ export interface ActionsSetProps {
   /** View options (Table / List), on the far right. */
   showViewOptions?:  boolean;
   viewMode?:         ViewMode;
+  /** Which layouts View options offers, in order (default Table, List). */
+  viewModes?:        ViewMode[];
   onViewModeChange?: (mode: ViewMode) => void;
 }

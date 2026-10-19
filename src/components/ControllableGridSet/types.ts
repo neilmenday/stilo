@@ -24,6 +24,14 @@ export interface GridItem {
 }
 
 export interface ControllableGridSetProps {
+  /** View options (Grid / List), on by default; false for a grid-only view.
+   *  The list keeps the same information: title (identifier), members (avatars)
+   *  and the summary as columns. */
+  showViewOptions?:  boolean;
+  viewMode?:         'grid' | 'list';
+  onViewModeChange?: (mode: 'grid' | 'list') => void;
+  /** Which grid this is, for remembering its view. */
+  viewOptionsKey?:   string;
   items: GridItem[];
   drawerWidth?:         number;
   panelTitle?:          (item: GridItem) => string;
