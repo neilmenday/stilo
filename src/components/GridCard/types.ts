@@ -20,6 +20,8 @@ export interface GridCardProps {
   /** Summary: the sentence's link part (dotted underline), then its plain text. */
   summaryLink?:        { label: string; onClick?: () => void };
   summaryText?:        string;
+  /** Problem detected state (red border), e.g. a team with no active distributors. */
+  hasProblem?:         boolean;
   identifier:          string;
   identifierControl?:  GridCardIdentifierControl;
   checked?:            boolean;

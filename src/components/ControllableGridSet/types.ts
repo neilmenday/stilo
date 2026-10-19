@@ -19,6 +19,7 @@ export interface GridItem {
   avatars?:         AvatarRowProps;
   summaryLink?:     { label: string; onClick?: () => void };
   summaryText?:     string;
+  hasProblem?:      boolean;
   [key: string]: unknown;
 }
 
