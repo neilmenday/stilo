@@ -1,5 +1,6 @@
 import type React from 'react';
-import type { GridCardSupportingInfo } from '../GridCard/types';
+import type { GridCardSupportingInfo, GridCardVariant } from '../GridCard/types';
+import type { AvatarRowProps } from '../AvatarRow/types';
 
 export interface GridItem {
   id:               string | number;
@@ -13,6 +14,11 @@ export interface GridItem {
   /** cardVariant 'grid': the GridCard's supporting info and content. */
   supportingInfo?:  GridCardSupportingInfo;
   content?:         React.ReactNode;
+  /** cardVariant 'grid': the GridCard variant and its summary-variant parts. */
+  gridCardVariant?: GridCardVariant;
+  avatars?:         AvatarRowProps;
+  summaryLink?:     { label: string; onClick?: () => void };
+  summaryText?:     string;
   [key: string]: unknown;
 }
 

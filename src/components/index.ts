@@ -3,6 +3,7 @@ export * from './Date';
 export * from './ActionsSet';
 export * from './AppSidebar';
 export * from './Avatar';
+export * from './AvatarRow';
 export * from './AvatarListItem';
 export * from './Box';
 export * from './Breadcrumb';
