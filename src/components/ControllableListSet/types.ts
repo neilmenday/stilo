@@ -29,6 +29,14 @@ export interface ControllableListSetProps {
   panelTitle?:          (item: ListItem) => string;
   renderPanelContent?:  (item: ListItem, onClose: () => void) => React.ReactNode;
   renderPanelActions?:  (item: ListItem, onClose: () => void) => React.ReactNode;
+  /** Drawer Save (after which the drawer closes). */
+  onPanelSave?:         (item: ListItem) => void;
+  /** Whether the drawer has unsaved edits (as on ControllableTableSet): with none,
+   *  Save / Cancel are disabled and clicking outside closes it; with edits, only
+   *  Save / Cancel close it. */
+  panelDirty?:          boolean;
+  /** Extra information after the drawer's title (e.g. status pills). */
+  panelTitleAddon?:     (item: ListItem) => React.ReactNode;
   onNavigate?:          (item: ListItem) => void;
   drawerWidth?:         number;
   overlayWidth?:        number;
