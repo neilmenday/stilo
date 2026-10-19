@@ -15,7 +15,8 @@ export interface CheckboxProps {
   infoBody?: string;
   disabled?: boolean;
   id?: string;
-  variant?: 'default' | 'title';
+  /** 'title-large': a 20px title as the label (e.g. a summary card's title, so clicking it checks the box). */
+  variant?: 'default' | 'title' | 'title-large';
   // Lets the label wrap onto multiple lines instead of the default
   // single-line/nowrap behaviour — box top-aligns against the first line.
   wrapLabel?: boolean;
