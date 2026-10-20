@@ -23,6 +23,12 @@ export interface ExpandableBoxProps {
   linkIcon?: string;
   children?: React.ReactNode;
   onChange?: (value: boolean) => void;
+  /** Id on the box, so a link can point at it. */
+  anchorId?: string;
+  /** The box a link points at: it scrolls into view, opens (a checkable box
+   *  stays as it is - open there means switched on) and is marked for the
+   *  extension to highlight. */
+  linked?: boolean;
 }
 
 export interface NestedExpandableBoxProps {
