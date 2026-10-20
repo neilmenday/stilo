@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useFormBlockRow } from './useFormBlockRow';
 import type { FormBlockSettingsProps, FormBlockFieldDef } from './types';
 
@@ -82,9 +82,13 @@ function FormBlockRow({
   );
 }
 
-export function FormBlockSettings({ title, rows, showDescriptions = true, renderField }: FormBlockSettingsStructureProps) {
+export function FormBlockSettings({ title, rows, showDescriptions = true, anchorId, linked = false, renderField }: FormBlockSettingsStructureProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (linked) ref.current?.scrollIntoView({ block: 'center', behavior: 'smooth' });
+  }, [linked]);
   return (
-    <div data-stilo="form-block-settings" style={{ display: 'flex', flexDirection: 'column', gap: 'var(--form-block-gap, 12px)' }}>
+    <div ref={ref} id={anchorId} data-linked={linked || undefined} data-stilo="form-block-settings" style={{ display: 'flex', flexDirection: 'column', gap: 'var(--form-block-gap, 12px)' }}>
       {title && (
         <span style={{
           fontSize:   'var(--form-block-title-size, 16px)',

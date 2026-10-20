@@ -45,6 +45,10 @@ export interface ControllableListSetProps {
   panelDirty?:          boolean;
   /** Extra information after the drawer's title (e.g. status pills). */
   panelTitleAddon?:     (item: ListItem) => React.ReactNode;
+  /** Opens the drawer for the item with this `id` (e.g. from a link). Drawer variant only. */
+  openItemId?:         string | number;
+  /** Called when the drawer closes (Save, Cancel or clicking outside). */
+  onPanelClose?:       () => void;
   onNavigate?:          (item: ListItem) => void;
   drawerWidth?:         number;
   overlayWidth?:        number;

@@ -20,6 +20,10 @@ export interface ControllableTableSetProps {
    *  Cancel are disabled and clicking outside closes the drawer; with edits,
    *  only Save / Cancel close it. Drawer variant only. */
   panelDirty?:         boolean;
+  /** Opens the drawer for the item with this `id` (e.g. from a link). Drawer variant only. */
+  openItemId?:         string | number;
+  /** Called when the drawer closes (Save, Cancel or clicking outside). */
+  onPanelClose?:       () => void;
   /** View options (Table / List). On by default in every view; false for a
    *  table-only view. The list keeps the same information:
    *  - the Identifier column -> the list identifier

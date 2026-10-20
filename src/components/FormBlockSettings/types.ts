@@ -40,4 +40,9 @@ export interface FormBlockSettingsProps {
   title?: string;
   rows: FormBlockRowDef[];
   showDescriptions?: boolean;
+  /** Id on the block, so a link can point at it. */
+  anchorId?: string;
+  /** The block a link points at: it scrolls into view and is marked
+   *  `data-linked` for the extension to highlight. */
+  linked?: boolean;
 }

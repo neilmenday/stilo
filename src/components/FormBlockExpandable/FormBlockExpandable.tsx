@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useExpandableBox } from '../ExpandableBox/useExpandableBox';
 import type { FormBlockExpandableProps } from './types';
 
@@ -38,12 +38,18 @@ export function FormBlockExpandable({
   showDotmenu = false,
   children,
   onChange,
+  anchorId,
+  linked = false,
   renderHeader = DefaultHeader,
 }: FormBlockExpandableStructureProps) {
-  const { isOpen, toggle } = useExpandableBox({ variant, defaultOpen, onChange });
+  const { isOpen, toggle } = useExpandableBox({ variant, defaultOpen: defaultOpen || linked, onChange });
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (linked) ref.current?.scrollIntoView({ block: 'center', behavior: 'smooth' });
+  }, [linked]);
 
   return (
-    <div data-stilo="form-block-expandable" data-open={isOpen || undefined}>
+    <div ref={ref} id={anchorId} data-stilo="form-block-expandable" data-open={isOpen || undefined} data-linked={linked || undefined}>
       {renderHeader({ title, isOpen, onToggle: toggle, showPill, pillLabel, showDotmenu })}
       {isOpen && (
         <div data-stilo="form-block-expandable-content">
